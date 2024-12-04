@@ -1,5 +1,11 @@
 /* Stilizimi i Navbarit */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');/* importojna fondin */
+
+body{
+    background-color: #015958;
+   
+ 
+}
 header{
     box-sizing: border-box;
     margin: 0;
@@ -56,4 +62,134 @@ button:hover{
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+/*Stilizimi per pjesen e home-contentit*/
+.home{
+    
+    background-image: url('Projekti\Homepage-background1.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+ 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    align-items: flex-start; 
+    padding: 50px 5%;
+
+}
+
+
+.home .contenti-home{
+    max-width: 380px;
+    margin-right: 20px;
+    position: relative;
+    z-index: 10;
+}
+.contenti-home h3{
+    font-size: 32px;
+    font-family:"Poppins", sans-serif;  
+    margin-bottom: 5px;
+}
+.contenti-home h1{
+    font-size:  48px;
+    font-weight: 700;
+    font-family:"Poppins", sans-serif; 
+    margin-bottom: 10px;
+    line-height: 1.2; 
+}
+.contenti-home p{
+    font-size: 16px;
+    margin-bottom: 15px; 
+    line-height: 1.5;
+}
+.contenti-home .view-more-btn {
+    margin-top: 20px; 
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #008F8C;
+}
+
+.actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: stretch;
+        gap: 20px;
+    
+}
+.action2 {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+}
+
+.searchbox{
+    margin-top: 20px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: #008F8C;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow:  0 5px 15px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    
+}
+.searchbox:hover {
+    width: 400px;
+
+}
+.searchbox:hover input{
+    width: 90%;
+
+}
+.searchbox input{
+    color: white;
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 0.8s;
+    background: transparent;
+    transition: width 0.3s ease;
+
+}
+.searchbox a .fas{
+    color: #023535;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.searchbox input::placeholder {
+    color: #023535; 
+    opacity: 1; 
+}
+.view-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #008F8C;
+    border-radius: 20px; 
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+.view-more-btn:hover {
+    background-color: #015958; 
+    color: #edf0f1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05); 
 }
