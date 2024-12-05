@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Linking google fonts for icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
-    
+    <!-- Linking SwiperJS CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
     <header >
@@ -54,10 +55,10 @@
    </div>
 </section>
 <section class="sliders">
-    <div class="container">
-        <div class="card">
-            <ul class="card-list">
-                <li class="card-item">
+    <div class="container swiper">
+        <div class="card-wapper">
+            <ul class="card-list swiper-wrapper">
+                <li class="card-item swiper-slide">
                     <a href="#" class="card-link">
                     <img src="Eventi1.jpg" alt="Nje Event" class="card-image">
                     <p class="permbajtja">Latest Event</p>
@@ -66,38 +67,61 @@
 
                     </a>
                 </li>
-                <li class="card-item">
+                <li class="card-item swiper-slide">
                     <a href="#" class="card-link">
                     <img src="Event.jpg" alt="Nje Event" class="card-image">
                     <p class="permbajtja">Latest Event</p>
-                    <h2 class="titulli">Circus Event </h2>
+                    <h2 class="titulli">Together for Nature </h2>
                     <button class=" card-button material-symbols-rounded">arrow_forward </button>
 
                     </a>
                 </li>
-                <li class="card-item">
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                    <img src="Eventi4.jpg" alt="Nje Event" class="card-image">
+                    <p class="permbajtja">Latest Event</p>
+                    <h2 class="titulli">Circus Event</h2>
+                    <button class=" card-button material-symbols-rounded">arrow_forward </button>
+
+                    </a>
+                </li>
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                    <img src="Eventi5.jpg" alt="Nje Event" class="card-image">
+                    <p class="permbajtja">Latest Event</p>
+                    <h2 class="titulli">Teatri Kombëtar i Kosovës </h2>
+                    <button class=" card-button material-symbols-rounded">arrow_forward </button>
+
+                    </a>
+                </li>
+                <li class="card-item swiper-slide">
                     <a href="#" class="card-link">
                     <img src="Eventi2.jpg" alt="Nje Event" class="card-image">
                     <p class="permbajtja">Latest Event</p>
-                    <h2 class="titulli">Forumi Rinor & Kulturor</h2>
+                    <h2 class="titulli">Film n'park</h2>
                     <button class=" card-button material-symbols-rounded">arrow_forward </button>
 
                     </a>
                 </li>
-                <li class="card-item">
+                <li class="card-item swiper-slide">
                     <a href="#" class="card-link">
                     <img src="Eventi3.jpg" alt="Nje Event" class="card-image">
                     <p class="permbajtja">Latest Event</p>
-                    <h2 class="titulli">Forumi Rinor & Kulturor</h2>
+                    <h2 class="titulli">Baleti Kombëtar i Kosovës</h2>
                     <button class=" card-button material-symbols-rounded">arrow_forward </button>
 
                     </a>
                 </li>
             </ul>
-
-        </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+           
+           </div>
     </div>
-
+    <!-- Linking SwiperJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="Script-slider.js"></script>
 </section>
     
 </body>

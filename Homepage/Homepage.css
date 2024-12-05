@@ -190,8 +190,9 @@ button:hover{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transform: scale(1.05); 
 }
+/*Pjesa e sliderit ne css*/
 .slider{
-   
+  
     box-sizing: border-box ;
     display: flex;
     align-items: center;
@@ -200,8 +201,14 @@ button:hover{
     background: linear-gradient(#008F8C, #015958);  
 
 }
+.card-wapper{
+    max-width: 100%;
+    margin:  60px auto;
+    padding: 20px 10px;
+    overflow: hidden;
+}
 .card-list .card-item .card-link {
-    width: 400px;
+   user-select: none;
     display: block;
     padding: 18px;
     background: #fff;
@@ -269,3 +276,4 @@ button:hover{
     color: #fff;
     border-color: #fff;
 }
+
