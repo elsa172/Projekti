@@ -3,87 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact us</title>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="ContactUs.css">
 </head>
 <body>
+    <header >
+        <img class="logo" src="logoEventopia.png" alt="logo">
+         <nav>
+             <ul class="nav-links">
+                 <li><a href="#">Home</a></li>
+                 <li><a href="#">About</a></li>
+                 <li><a href="#">Events</a></li>
+                 <li><a href="#">Contact</a></li>
+             </ul>
+         </nav>
+         <div class="nav-butonat">
+         <a  href="#"><button>Login</button></a>
+         <a  href="#"><button>Sign Up</button></a>
+     </div>
+     </header>
     <div class="container">
-        <div class="left">
-            <h3 class="heading">Contact us</h3>
-            <p class="text"> We'd love to hear from you! How can we help?</p>
-            <form action="#"></form>
-            <div class="inputBox"></div>
-            <input 
-            type="text" 
-            name="name"
-            class="name"
-            placeholder="Enter your name"/>
-
-        </div>
-        <div class="inputBox">
-            <input 
-            type="text" 
-            name="email"
-            class="email"
-            placeholder="Enter your email addres"/>
-
-        </div>
-
-        <div class="inputBox">
-            <textarea name="message"
-            class="message" 
-            placeholder="Enter your message...">
-            </textarea>
-        </div>
-        <button class="button">Submit</button>
-    </div>
-
-        <div class="container">
-            <div class="right">
-                <div class="ilustration">
-                    <img src="" alt="">
+        <div class="form-section">
+            <h1 class="h1">Contact us</h1>
+            <p class="paragrafi">We'd love to hear from you! How can we help?</p>
+            <form>
+                <div class="inputBox">
+                    <input type="text" placeholder="Enter your name">
                 </div>
-                <div class="contact-info">
-                    <div class="infoBox">
-                        <div class="icon">
-                         <ion-info name="location" ></ion-info>
-                        </div>
-                        <div class="text">
-                            <p>Rruga Nene Tereza, Nr.15 , Prishtine</p>
-                        </div>
-                    </div>
-
-                    <div class="infoBox">
-                        <div class="icon">
-                         <ion-info name="call" ></ion-info>
-                        </div>
-                        <div class="text">
-                            <a href="tel:048-233-709">048-233-709</p>
-                        </div>
-                    </div>
-
-                    <div class="infoBox">
-                        <div class="icon">
-                         <ion-info name="email" ></ion-info>
-                        </div>
-                        <div class="text">
-                            <a href="email:eventopia@gmail.com">eventopia@gmail.com</a>
-                        </div>
-                    </div>
+                <div class="inputBox">
+                    <input type="email" placeholder="Enter your email address">
                 </div>
-
+                <div class="inputBox">
+                    <textarea placeholder="Enter your message..."></textarea>
+                </div>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+        <div class="full-contact-info">
+            <div class="illustration">
+                <img src="" alt="">
+            </div>
+            <div class="contact-info">
+                <div class="infoBox">
+                    <ion-icon name="location"></ion-icon>
+                    <p>Rruga Nene Tereza, Nr.15 , Prishtine</p>
+                </div>
+                <div class="infoBox">
+                    <ion-icon name="call-"></ion-icon>
+                    <a href="tel">048-233-709</a>
+                </div>
+                <div class="infoBox">
+                    <ion-icon name="mail"></ion-icon>
+                    <a href="email">eventopia@gmail.com</a>
+                </div>
             </div>
             <div class="social-icons">
-                <a href="#">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-                <a href="#">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-                <a href="#">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
+                    <a href="#">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                    </a>
+                </div>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3 class="footer-title">Eventopin</h3>
+            <p class="footer-description">Stay connected, stay informed. Join us for exciting events and opportunities!</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Upcoming Events</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3 class="footer-title">Follow Us</h3>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-    
-</body>
+    </div>
+    <div class="footer-bottom">
+        <p> 2024 Eventopin. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</html>
 </html>
