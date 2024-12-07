@@ -1,0 +1,168 @@
+header{
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #023535;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    min-height: 100px;
+}
+li,a,button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+.logo{
+    cursor: pointer;
+    width: auto; 
+   max-height: 80px;
+   margin-right: 20px;
+}
+.nav-links{
+    list-style: none;
+}
+.nav-links li { 
+    display: inline-block;
+    padding: 0px 20px;
+
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    }
+.nav-links li a:hover{
+color: #015958 ;
+}
+button {
+    padding: 9px 25 px ;
+    background-color: #015958;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    color: #008F8C;
+    
+}
+.nav-butonat{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #0A7075;
+  }
+  
+  .conteiner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .pjesakryesore {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pjesakryesore h1 {
+    font-size: 28px;
+  }
+  .kuti-te-medha {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .kuti-e-madhe {
+    flex: 1;
+    background: #015958;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .kuti-e-madhe:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .kuti-e-madhe h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .kuti-e-madhe p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background: #008F8C;
+    border: none;
+    color: white;
+    padding: 10px 15px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #023535;
+  }
+  .rrjete {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .kuti {
+    background: #a9a9a9;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .kuti:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .kuti img {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .kuti h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .kuti p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+  .kuti button {
+    background: #015958;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .kuti button:hover {
+    background: #008F8C;
+  }
