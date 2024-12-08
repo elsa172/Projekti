@@ -35,7 +35,7 @@ li,a,button{
 .nav-links li a:hover{
 color: #015958 ;
 }
-button {
+.butoni-nav {
     padding: 9px 25 px ;
     background-color: #015958;
     border: none;
@@ -43,7 +43,7 @@ button {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
-button:hover{
+.butoni-nav:hover{
     color: #008F8C;
     
 }
