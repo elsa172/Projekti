@@ -62,21 +62,21 @@ button:hover{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-font-family: "Roboto", sans-serif;
-
-
+font-family: 'Roboto' sans-serif;
 body {
 display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
 background-color:#015958;
+
 }
 
 .container {
 display: flex;
+align-items: center;
 max-width: 1200px;
-width: 90%;
+width: 100%;
 background: #fff;
 border-radius: 10px;
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -147,8 +147,13 @@ align-items: center;
 justify-content: space-between;
 }
 
+.illustration{
+    text-align: center;
+}
 .illustration img {
-max-width: 100%;
+max-width: 50%;
+height: auto; 
+
 }
 
 .contact-info {
