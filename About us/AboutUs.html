@@ -3,63 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us</title>
+    <link rel="stylesheet" href="aboutus.css">
+    <script src="aboutUs.js"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
+    <header>
+        <img class="logo" src="logoEventopia.png" alt="logo">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-butonat">
+            <a href="#"><button>Login</button></a>
+            <a href="#"><button>Sign Up</button></a>
+        </div>
+    </header>
+    <!--pjesa e header About us ka mu shtu edhe ni background -->
     <div class="header">
         <h1>About Us: We Create Moments, Not Just Events</h1>
         <p>Every event is a story. We are here to write you a beautiful chapter!</p>
     </div>
-    <!--foto?-->
-    
-    <div class="container">
-        <div class="section">
-            <h2>Our Mission</h2>
-            <p>To bring a new dimension to local event planning, where every detail tells your story, and every moment becomes an unforgettable memory.</p>
+
+    <!--Misioni edhe ni foto i shtohet-->
+    <div class="our-mission-container">
+        <div class="our-mission-content">
+            <h4>Our Mission</h4>
+            <p>
+                To bring a new dimension to local event planning, where every detail tells a story, and every moment becomes an unforgettable memory.  
+                We specialize in creating unique and unforgettable private events tailored to your vision. From concept to completion, we manage every detail to ensure your event is seamless and stress-free.  
+                Our expertise in local event planning brings your special moments to life, right in your community. Whether it’s an intimate gathering or a grand celebration, we craft experiences that leave lasting impressions.  
+                Trust us to handle your private events with creativity, precision, and personalized care. Count on us to manage local events with professionalism, efficiency, and a touch of creativity.
+            </p>
         </div>
-    
-        <div class="section">
-            <h2>What Makes Us Different?</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>Boundless Creativity</h3>
-                    <p>We don’t think inside the box. We exceed expectations with fresh ideas and unique concepts.</p>
-                </div>
-                <div class="feature">
-                    <h3>Strong Local Connections</h3>
-                    <p>By collaborating with the best local vendors and artists, we give your event an authentic local flavor.</p>
-                </div>
-                <div class="feature">
-                    <h3>Extreme Attention to Detail</h3>
-                    <p>From decorations to the overall atmosphere, nothing is left to chance. Every detail is part of your perfect mosaic.</p>
-                </div>
+        <div class="our-mission-image">
+            <img src="Screenshot 2024-12-07 215403.png" alt="Event planning in action">
+        </div>
+    </div>
+
+    <section class="statistics-boxes">
+        <div class="stat-box">
+            <h3>20+</h3>
+            <p>Years of Experience</p>
+        </div>
+        <div class="stat-box">
+            <h3>1000+</h3>
+            <p>Projects Done</p>
+        </div>
+        <div class="stat-box">
+            <h3>500+</h3>
+            <p>Satisfied Clients</p>
+        </div>
+        <div class="stat-box">
+            <h3>78</h3>
+            <p>Awards</p>
+        </div>
+    </section>
+
+    <!--ka me pas modifikime hala edhe shtimi i icons-->
+    <div class="section">
+        <h2>What Makes Us Different?</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Boundless Creativity</h3>
+                <p>We don’t think inside the box. We exceed expectations with fresh ideas and unique concepts.</p>
+            </div>
+            <div class="feature">
+                <h3>24/7 Support</h3>
+                <p>Our team is available around the clock to ensure everything runs smoothly.</p>
+            </div>
+            <div class="feature">
+                <h3>Stress-Free Planning</h3>
+                <p>Our detailed approach ensures a seamless experience so you can focus on enjoying your event.</p>
+            </div>
+            <div class="feature">
+                <h3>Tailored Experiences</h3>
+                <p>No two events are the same. We customize every detail to reflect your personality and preferences.</p>
+            </div>
+            <div class="feature">
+                <h3>Exclusive Gifts</h3>
+                <p>Make your event unforgettable with unique surprises and customized keepsakes.</p>
             </div>
         </div>
-    
-        <div class="section">
-            <h2>Events We Make a Reality</h2>
-            <div class="">
-              <img src="" alt=""><!--foto qe do te shtohen-->
+
+        <!--Slideri-->
+        <section class="sliders">
+            <div class="slider-header">
+                <h2 class="slider-title">What We Realize</h2>
+                <p class="slider-subtitle">The Most Successful Events</p>
             </div>
-        </div>
+            <div class="swiper">
+                <div class="card-wapper">
+                    <ul class="card-list swiper-wrapper">
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <img src="Festival.jpeg" alt="Nje Event" class="card-image">
+                                <p class="permbajtja"></p>
+                                <h2 class="titulli"> Summer Festival</h2>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <img src="sport.webp" alt="" class="card-image">
+                                <p class="Engage with the community through thrilling sports events and activities."></p>
+                                <h2 class="titulli">Basketball Event</h2>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <img src="Wedding.jpg" alt="Nje Event" class="card-image">
+                                <p class="Experience the perfect wedding with personalized themes and designs"></p>
+                                <h2 class="titulli">Wedding</h2>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <img src="Firework.jpg" alt="Nje Event" class="card-image">
+                                <p class="Vibrant summer festival celebration"></p>
+                                <h2 class="titulli">Sparkling night</h2>
+                            </a>
+                        </li>
+                        <li class="card-item swiper-slide">
+                            <a href="#" class="card-link">
+                                <img src="Piknik.jpg" alt="Nje Event" class="card-image">
+                                <p class="Vibrant summer festival celebration"></p>
+                                <h2 class="titulli">Picnic day</h2>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="Script-slider.js"></script>
+        <!--team-->
+        <section class="team-section">
+            <h2>MEET OUR TEAM</h2>
+            <div class="team-container">
+
+                <div class="team-card">
+                    <img src="istockphoto-1503232125-612x612.jpg" alt="Arben H.">
+                    <h3>Arben H.</h3>
+                    <p class="role">Corporate Event Planner</p>
+                    <div class="card-details">
+                        <p>Arben is a visionary leader excels at organizing seamless corporate events.</p>
+                    </div>
+                </div>
     
+                <div class="team-card">
+                    <img src="360_F_678098211_RBtjy68o4sN0myCWY3OrM9revJ9JOw41.jpg" alt="Aurora G.">
+                    <h3>Aurora G.</h3>
+                    <p class="role">Wedding Planner</p>
+                    <div class="card-details">
+                        <p>Aurora specializes in crafting personalized, unforgettable weddings for every couple.</p>
+                    </div>
+                </div>
+        
+                <div class="team-card">
+                    <img src="download (1).jpg" alt="Elona R.">
+                    <h3>Elona R.</h3>
+                    <p class="role">Nightlife Event Planner</p>
+                    <div class="card-details">
+                        <p>Elona is passionate about creating exciting, dynamic nightlife events.</p>
+                    </div>
+                </div>
+        
+                <div class="team-card">
+                    <img src="team1.avif" alt="Blendi H.">
+                    <h3>Blendi H.</h3>
+                    <p class="role">Artistic Event Coordinator</p>
+                    <div class="card-details">
+                        <p>Blendi brings creativity and a unique artistic touch to every event.</p>
+                    </div>
+                </div>
+        
+                <div class="team-card">
+                    <img src="istockphoto-2058319417-612x612.jpg" alt="Alketa B.">
+                    <h3>Alketa B.</h3>
+                    <p class="role">Birthday Event Planner</p>
+                    <div class="card-details">
+                        <p>Alketa specializes in planning memorable birthday parties for all ages.</p>
+                    </div>
+                </div>
+        
+                <div class="team-card">
+                    <img src="istockphoto-1466995518-612x612.jpg" alt="Albana D.">
+                    <h3>Albana D.</h3>
+                    <p class="role">Corporate Event Planner</p>
+                    <div class="card-details">
+                        <p>Albana is an expert at organizing successful corporate events and conferences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--ka me pas hala modifikime-->
+        <section class="join-team-section">
+            <h2>Join Our Team</h2>
+            <p>Become part of our exceptional team and help create unforgettable events!</p>
+            <p>If you are passionate about event planning and want to be part of a creative and dynamic team, we would love to hear from you.</p>
+            <a href="contact.html" class="join-team-button">Apply Now</a>
+        </section>
+
+        <!-- Client Choose us -->
         <div class="section">
-            <h2>Why Do Our Clients Choose Us?</h2><!-- ne forme liste unordered- ka mundsi me ndryshu-->
-            <ul style="list-style: none; padding: 0; text-align: center;">
+            <h2>Why Do Our Clients Choose Us?</h2>
+            <ul class="client-choices">
                 <li>We Listen – Every event begins by carefully listening to your dreams and desires.</li>
                 <li>We Adapt – Every event is unique, and we tailor it to your vision to create a personalized experience.</li>
                 <li>We Deliver – From concept to execution, we ensure every detail exceeds your expectations.</li>
             </ul>
         </div>
-    
+
+        <!-- Call to Action -->
         <div class="cta">
             <p>Choose to create memories, not just hold events.</p>
             <a href="#">Contact Us Today</a>
         </div>
     </div>
-    
-    </body>
-    </html>
-    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">Eventopin</h3>
+                <p class="footer-description">Stay connected, stay informed. Join us for exciting events and opportunities!</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Upcoming Events</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2024 Eventopin. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

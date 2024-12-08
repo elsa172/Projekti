@@ -1,0 +1,550 @@
+/* Stilizimi i Navbarit */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');/* importojna fondin */
+*{
+    font-family: "Poppins", sans-serif;
+}
+header{
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #023535;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    min-height: 100px;
+   
+
+}
+li,a,button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+.logo{
+    cursor: pointer;/* cursorit kur bojna hover ja ndrrojm gjendejen*/
+    width: auto; 
+   max-height: 80px;
+   margin-right: 20px;
+}
+.nav-links{
+    list-style: none;
+}
+.nav-links li { 
+    display: inline-block;
+    padding: 0px 20px;
+
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    }
+.nav-links li a:hover{
+color: #015958 ;
+}
+button {
+    padding: 9px 25 px ;
+    background-color: #015958;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    color: #008F8C;
+    
+}
+.nav-butonat{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* pjesa e headerit  te about us*/
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #023535;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+/* pjesa e our mission */
+  
+.our-mission-container {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    margin: 50px auto; 
+    padding: 30px; 
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .our-mission-content {
+    flex: 2; /*i merr dy spaces */
+  }
+  
+  .our-mission-content h4 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #023535;
+  }
+  
+  .our-mission-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .our-mission-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .our-mission-image img {
+    max-width: 100%;
+    height: auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+/*  statistikat*/
+  .statistics-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px ;
+    margin-bottom: 40px;
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.stat-box {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 10%; /* Adjust box width */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-box h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #023535;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 15px;
+    color: #023535;
+    line-height: 1;
+}
+/*Different*/
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.feature {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature h3 {
+    color: #023535;
+}
+
+/*headeri i Sliderit*/
+.slider-header {
+    text-align: center;
+    margin-bottom: 20px; 
+    margin-top: 50px
+  }
+  
+  .slider-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #023535;
+    margin: 0;
+  }
+  
+  .slider-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+  }
+
+/*Slideri*/
+.card-wrapper {
+    margin-top: 40px;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 50px ;
+    display: flex;
+    gap: 15px; 
+    justify-content: flex-start; 
+}
+  
+  .card-list {
+    display: flex;
+    gap: 15px; 
+  }
+  
+  .card-item {
+    flex: 0 0 calc(25% - 15px); 
+    max-width: 300px; 
+    min-width: 250px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    display: block;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .permbajtja {
+    margin-top: 15px;
+    padding: 5px 10px;
+    background: #DDE4FF;
+    color: #023535;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    width: fit-content;
+  }
+  
+  .titulli {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #023535;
+    margin: 10px 0;
+  }
+  
+  .card-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid #023535;
+    background: none;
+    color: #023535;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .card-button:hover {
+    background: #023535;
+    color: white;
+  }
+  
+  /* Navigation i sliderit */
+  .card-wrapper::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .card-wrapper::-webkit-scrollbar-thumb {
+    background: #015958; 
+    border-radius: 5px;
+  }
+
+  /*pjesa e team */
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 200px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.team-card:hover img {
+    transform: scale(1.1);
+}
+
+.team-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.team-card .role {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-details {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    transition: bottom 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.team-card:hover .card-details {
+    bottom: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+
+  
+  .team-card:hover .card-details {
+    bottom: 0;
+  }
+
+ /*Pjesa e join our team*/
+.join-team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    margin-top: 30px;
+}
+
+.join-team-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.join-team-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.join-team-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #023535; 
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.join-team-button:hover {
+    background-color: #023535;
+    color:#fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Client Choice us */
+.client-choices {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+.client-choices li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* CalltoAction */
+.cta {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #023535; 
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cta a:hover {
+    background-color: #023535;
+    color:#fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/*Pjesa e footerit*/
+.footer {
+    background-color: #023535;
+    color: #edf0f1;
+    padding: 40px 10%;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 20px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #DDE4FF;
+    margin-bottom: 10px;
+}
+
+.footer-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #EDF0F1;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #008F8C;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #EDF0F1;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #008F8C;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
