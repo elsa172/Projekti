@@ -133,7 +133,7 @@
   <div class="card">
     <h1 class="titulli"> Work Opportunities in Open Events</h1>
     <p class="paragrafi">Eventopia is a platform that connects individuals with job opportunities in various events. Through this website, you can apply for daily or long-term jobs depending on the event’s needs. Event organizers can post calls for volunteers or paid workers, making it easier to find the right people to bring their activities to life. If you're looking for flexible work and want to engage in exciting events, Eventopia is the perfect place for you!</p>
-<a class="butoni"   href="#"><button>Learn more</button></a>
+<a class="butoni"   href="C:\Users\cakiq\OneDrive\Desktop\Projekti\About us\AboutUs.html"><button>Learn more</button></a>
     </div>
 </body>
 <footer class="footer">
