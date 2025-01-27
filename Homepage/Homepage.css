@@ -12,15 +12,16 @@ header{
     align-items: center;
     padding: 10px 10%;
     min-height: 100px;
-   
-
+    flex-wrap: wrap;
 }
 body {
     margin: 0;
     width: 100%;
     background-color: #015958;
+    overflow-x: hidden
+    padding: 0;
 }
-li,a,button{
+li,a,butto {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -64,6 +65,69 @@ button:hover{
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+/*Resonsiviteti i Nav-Barit*/
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 5%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .nav-butonat {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: column; /* Shfaq elementet në kolona për ekran të vogël */
+        align-items: center;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .hero {
+        margin: 0;
+        width: 100%; /* Siguron që hero image nuk del jashtë ekranit */
+    }
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-links li a {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+        width: 80%; 
+    }
+
+    .nav-butonat {
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+    }
 }
 /*Stilizimi per pjesen e home-contentit*/
 .home{
@@ -547,6 +611,65 @@ button:hover{
     font-size: 16px;
     font-weight: 600;
   }
+  /* Responsiviteti i Reviews */
+  @media screen and (max-width: 768px) {
+    .review {
+      grid-template-columns: 1fr; 
+    }
+    .container-majtas h1 {
+      font-size: 36px; 
+    }
+    .container-majtas p {
+      font-size: 16px; 
+    }
+  
+    .container-majtas button {
+      font-size: 16px;
+      padding: 12px 30px; 
+    }
+  
+    .card {
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center;
+    }
+  
+    .card img {
+      margin-bottom: 16px; 
+    }
+  
+    .card-details h4 {
+      text-align: center; 
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .reviews {
+      padding: 16px; 
+    }
+  
+    .container-majtas h1 {
+      font-size: 28px; 
+    }
+  
+    .container-majtas p {
+      font-size: 14px; 
+    }
+  
+    .container-majtas button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  
+    .card {
+      padding: 16px; 
+    }
+  
+    .card img {
+      max-width: 50px;
+      height: 50px; 
+    }
+  }
   
 /*Pjesa e footerit*/
 .footer {
@@ -625,6 +748,57 @@ button:hover{
 
 .footer-bottom p {
     margin: 0;
+}
+/* Responsiviteti i Footerit */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 20px 0; 
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-description {
+        font-size: 0.95rem;
+    }
+
+    .footer-links li {
+        margin: 5px 0; 
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .footer {
+        padding: 20px 5%;
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+    }
+
+    .footer-description {
+        font-size: 0.85rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
 
 
