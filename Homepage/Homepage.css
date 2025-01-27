@@ -27,6 +27,7 @@ li,a,button{
     color: #edf0f1;
     text-decoration: none;
 }
+
 .logo{
     cursor: pointer;/* cursorit kur bojna hover ja ndrrojm gjendejen*/
     width: auto; 
@@ -541,4 +542,3 @@ button:hover{
 .footer-bottom p {
     margin: 0;
 }
-
