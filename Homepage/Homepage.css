@@ -200,9 +200,9 @@ button:hover{
     background: url('Backgroundi-i-dyte-.png') ;
     background-size: 100% ;
     border-radius: 10px;
-    padding-top: 50px;
+    padding-top: 50px 20px;
     background-repeat: no-repeat;
-    height: 70vh;
+    min-height: auto; 
   
 }
 
@@ -248,6 +248,44 @@ button:hover{
     line-height: 1.6;
     color: #e0e0e0;
 }
+/*Responsiviteti i What we offer*/
+@media screen and (max-width: 768px) {
+    .titulli {
+        font-size: 2rem;
+    }
+    .katroret {
+        justify-content: center;
+    }
+    .katrori {
+        min-width: 250px;
+        max-width: 300px;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .what-we-offer {
+        padding: 30px 10px; 
+    }
+    .titulli {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    .katrori h3 {
+        font-size: 1.2rem;
+    }
+    .katrori p {
+        font-size: 0.9rem;
+    }
+    .katroret {
+        flex-direction: column;
+        align-items: center;
+    }
+    .katrori {
+        min-width: 90%;
+        margin-top: 30px;
+    }
+}
 /*Pjesa parasliderit*/
 .parasliderit {
     background-color: #023535; 
@@ -282,7 +320,40 @@ button:hover{
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); 
     transition: all 0.3s ease-in-out; 
 }
+/*Responsiviteti i parasliderit*/
 
+@media screen and (max-width: 768px) {
+    .titullisliderit {
+        font-size: 2rem;
+    }
+    .paragrafi {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    .parasliderit {
+        padding: 30px 5%;
+    }
+    .parasliderit {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .titullisliderit {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .paragrafi {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    .parasliderit {
+        padding: 20px 5%;
+    }
+    .parasliderit {
+        margin-top: 20px; 
+    }
+}
 
 
 /*Pjesa e sliderit ne css*/
