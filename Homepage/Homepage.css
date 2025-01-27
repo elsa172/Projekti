@@ -371,6 +371,19 @@ button:hover{
     color: #fff;
     border-color: #fff;
 }
+/*Responsiv Sliderin*/
+@media screen and (max-width: 768px) {
+    .card-wapper{
+        margin: 0 10px  25px;
+    }
+    .card-wapper .card-button{
+        display: none;
+    }
+    .card-list .card-link .permbajtja:active {
+    cursor: grabbing ;
+    }
+
+}
 /*Pjesa e Reviews*/
 .reviews {
     padding: 32px 16px;
@@ -542,3 +555,5 @@ button:hover{
 .footer-bottom p {
     margin: 0;
 }
+
+
