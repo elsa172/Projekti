@@ -1,26 +1,4 @@
-<?php
-include_once 'Database.php';
-include_once 'User.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $db = new Database();
-    $connection = $db->getConnection();
-    $user = new User($connection);
-
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $result = $user->register($username, $email, $password);
-
-    if ($result === "Regjistrimi u krye me sukses!") {
-        header("Location: Signin.html");
-        exit;
-    } else {
-        echo $result;
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <form action="" class="sign-up-form">
+        <form action="C:\Users\cakiq\OneDrive\Desktop\Projekti\Homepage.html" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="social-media">
                 <a href="#" class="social-icon">

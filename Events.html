@@ -1,14 +1,4 @@
-<?php
-session_start();
 
-if ($_SESSION['role'] === 'admin') {
-    echo "<h1>Menaxho Eventet</h1>";
-    echo "<button>Shto Event</button>";
-} else {
-    echo "<h1>Eventet e Disponueshme</h1>";
-    echo "<button>Rezervo Event</button>";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +11,18 @@ if ($_SESSION['role'] === 'admin') {
 </head>
 <header >
     <img class="logo" src="logoEventopia.png" alt="logo">
-     <nav>
-         <ul class="nav-links">
-          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Homepage\Homepage.html">Home</a></li>
-          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\About us\AboutUs.html">About us</a></li>
-          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Events\Events.html">Events</a></li>
-          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Contact us\ContactUs.html">Contact us</a></li>
-         </ul>
-     </nav>
-     <div class="nav-butonat">
-     <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signin.html"><button>Login</button></a>
-     <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signup.php"><button>Sign Up</button></a>
- </div>
+    <nav>
+      <ul class="nav-links">
+          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Homepage.html">Home</a></li>
+          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\AboutUs.html">About us</a></li>
+          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Events.html">Events</a></li>
+          <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\ContactUs.html">Contact us</a></li>
+      </ul>
+  </nav>
+  <div class="nav-butonat">
+      <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Signin.html"><button>Login</button></a>
+      <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Signup.html"><button>Sign Up</button></a>
+  </div>
  </header>
  
 <body>

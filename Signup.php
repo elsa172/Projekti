@@ -1,5 +1,27 @@
 <?php
 include_once 'Database.php';
+include_once 'User.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $result = $user->register($username, $email, $password, $role);
+
+    if ($result === "Regjistrimi u krye me sukses!") {
+        header("Location: Signin.html");
+        exit;
+    } else {
+        echo $result;
+    }
+}
+
+include_once 'Database.php';
 include_once 'Useri.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $role = isset($_POST['role']) ? $_POST['role'] : 'user'; // Default 'user'
 
     // Regjistro përdoruesin
-    if ($user->register($username, $password, $role)) {
+    if ($user->register($username, $email, $password, $role)) {
         header("Location: login.php"); // Redirecto në faqen e kyçjes
         exit;
     } else {
@@ -24,13 +46,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<form action="register_user.php" method="POST">
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    Role (optional): 
-    <select name="role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select><br>
-    <button type="submit">Register</button>
-</form>
