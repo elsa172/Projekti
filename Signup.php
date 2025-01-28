@@ -1,33 +1,53 @@
 <?php
-// Përfshi klasën e bazës së të dhënave dhe klasën e përdoruesit
-require_once 'Database.php';
-require_once 'User.php';
+session_start();
+include 'Database.php'; // Përfshi klasën Database
 
-// Krijo një instancë të klasës Database
-$database = new Database();
-$db = $database->getConnection();
+// Inicializo lidhjen me databazën
+$dbInstance = new Database();
+$db = $dbInstance->getConnection(); // Merr lidhjen PDO
 
-// Krijo një instancë të klasës User dhe kaloni lidhjen me bazën
-$user = new User($db);
+$errorMessage = ''; // Variabël për të mbajtur mesazhin e gabimit
 
-// Kontrollo nëse forma është dërguar
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
-    // Merr të dhënat nga forma
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
-    // Thirri metodën signUp për të regjistruar përdoruesin
-    if ($user->signUp($username, $email, $password)) {
-        echo "Përdoruesi u regjistrua me sukses!";
-        // Pas regjistrimit, ridrejto në homepage
-        header("Location: homepage.php"); // Sigurohu që ke një faqe homepage.php
-        exit();
+    // Kontrollo nëse përdoruesi është regjistruar më parë
+    $query = "SELECT * FROM user WHERE email = :email"; 
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        // Nëse përdoruesi ekziston, ruaj mesazhin në variablin $errorMessage
+        $errorMessage = "Ky email është regjistruar më parë. Ju lutemi kyçuni.<br><a href='Signin.php'>Shko te Sign in</a>";
     } else {
-        echo "Gabim gjatë regjistrimit!";
+        // Nëse nuk ekziston, vazhdo me regjistrimin
+        $role = (strpos($email, '@admin.com') !== false) ? 'admin' : 'user';
+
+        // Ruaj përdoruesin në bazën e të dhënave
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO user (username, email, password, role) VALUES (:username, :email, :password, :role)";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':role', $role);
+
+        if ($stmt->execute()) {
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $role;
+
+            header("Location: homepage.php"); // Ridrejto te faqja kryesore
+            exit();
+        } else {
+            $errorMessage = "Gabim gjatë regjistrimit!";
+        }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="Signin-up.css">
+    <style>
+      
+        /* Stilizimi i mesazhit të gabimit */
+        .error-message {
+            margin-top: 20px;
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -66,6 +96,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
             <input type="submit" name="signup" value="Sign up" class="btn">
             <p class="account-text">Already have an account? <a href="Signin.php">Sign in</a></p>
         </form>
+
+        <!-- Div për shfaqjen e mesazhit të gabimit vetëm një herë nën formë -->
+        <?php if (!empty($errorMessage)): ?>
+            <div class="error-message">
+                <?php echo $errorMessage; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
