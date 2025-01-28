@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
                 <input type="password" name="password" placeholder="Password" required>
             </div>
             <input type="submit" name="signup" value="Sign up" class="btn">
-            <p class="account-text">Already have an account? <a href="Signin.html">Sign in</a></p>
+            <p class="account-text">Already have an account? <a href="Signin.php">Sign in</a></p>
         </form>
     </div>
 </body>
