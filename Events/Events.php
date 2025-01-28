@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if ($_SESSION['role'] === 'admin') {
+    echo "<h1>Menaxho Eventet</h1>";
+    echo "<button>Shto Event</button>";
+} else {
+    echo "<h1>Eventet e Disponueshme</h1>";
+    echo "<button>Rezervo Event</button>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +30,8 @@
          </ul>
      </nav>
      <div class="nav-butonat">
-      <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signin-up.html"><button>Login</button></a>
-        <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signin-up.html"><button>Sign Up</button></a>
+     <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signin.html"><button>Login</button></a>
+     <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Login\Signup.php"><button>Sign Up</button></a>
  </div>
  </header>
  

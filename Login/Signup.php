@@ -1,3 +1,26 @@
+<?php
+include_once 'Database.php';
+include_once 'User.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $result = $user->register($username, $email, $password);
+
+    if ($result === "Regjistrimi u krye me sukses!") {
+        header("Location: Signin.html");
+        exit;
+    } else {
+        echo $result;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
