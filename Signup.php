@@ -1,30 +1,30 @@
 <?php
-// Përfshi klasat për lidhjen me bazën e të dhënave dhe menaxhimin e përdoruesve
+// Përfshi klasën e bazës së të dhënave dhe klasën e përdoruesit
 require_once 'Database.php';
 require_once 'User.php';
 
-// Kontrollo nëse forma është dërguar me metodën POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup'])) {
-    // Lidhja me bazën e të dhënave
-    $database = new Database();
-    $db = $database->connect();
+// Krijo një instancë të klasës Database
+$database = new Database();
+$db = $database->getConnection();
 
-    // Inicializo klasën User
-    $user = new User($db);
+// Krijo një instancë të klasës User dhe kaloni lidhjen me bazën
+$user = new User($db);
 
-    // Merr të dhënat nga forma dhe i filtro
-    $username = htmlspecialchars($_POST['username']);
-    $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
+// Kontrollo nëse forma është dërguar
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
+    // Merr të dhënat nga forma
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    // Thirr metodën signUp për të regjistruar përdoruesin
+    // Thirri metodën signUp për të regjistruar përdoruesin
     if ($user->signUp($username, $email, $password)) {
-        // Nëse regjistrimi është i suksesshëm, ridrejto te Homepage.html
-        header("Location: Homepage.html");
+        echo "Përdoruesi u regjistrua me sukses!";
+        // Pas regjistrimit, ridrejto në homepage
+        header("Location: homepage.php"); // Sigurohu që ke një faqe homepage.php
         exit();
     } else {
-        // Nëse ka dështim, shfaq një mesazh gabimi
-        echo "Failed to register user. Please try again.";
+        echo "Gabim gjatë regjistrimit!";
     }
 }
 ?>

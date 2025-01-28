@@ -12,17 +12,17 @@
     <header>
         <img class="logo" src="logoEventopia.png" alt="logo">
         <nav>
-            <ul class="nav-links">
-                <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Homepage.php">Home</a></li>
-                <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\AboutUs.php">About us</a></li>
-                <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Events.php">Events</a></li>
-                <li><a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\ContactUs.php">Contact us</a></li>
-            </ul>
-        </nav>
-        <div class="nav-butonat">
-            <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Signin.php"><button>Login</button></a>
-            <a  href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Signup.php"><button>Sign Up</button></a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="Homepage.php">Home</a></li>
+            <li><a href="AboutUs.php">About us</a></li>
+            <li><a href="Events.php">Events</a></li>
+            <li><a href="ContactUs.php">Contact us</a></li>
+        </ul>
+    </nav>
+    <div class="nav-butonat">
+        <a  href="Signin.php"><button>Login</button></a>
+        <a  href="Signup.php"><button>Sign Up</button></a>
+    </div>
     </header>
     <!--pjesa e header About us ka mu shtu edhe ni background -->
     <div class="header">
