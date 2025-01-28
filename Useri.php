@@ -1,60 +1,36 @@
 <?php
 class User {
     private $conn;
-    private $table_name = 'useri';
+    private $table = "users";
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    // Kontrollo nëse emaili ekziston
-    public function emailExists($email) {
-        $query = "SELECT id FROM " . $this->table_name . " WHERE email = :email";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', htmlspecialchars(strip_tags($email)));
-        $stmt->execute();
-
-        return $stmt->rowCount() > 0;
-    }
-
-    // Regjistrimi i përdoruesit
-    public function register($username, $email, $password) {
-        if ($this->emailExists($email)) {
-            return "Email-i ekziston!";
-        }
-
+    public function signUp($username, $email, $password) {
+        // Përcakto rolin bazuar në email
         $role = (strpos($email, '@admin.com') !== false) ? 'admin' : 'user';
 
-        $query = "INSERT INTO " . $this->table_name . " (username, email, password, role) 
-                  VALUES (:username, :email, :password, :role)";
+        // Fjalëkalimi i koduar (hashed)
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
+        // Query për të futur të dhënat në tabelën users
+        $query = "INSERT INTO " . $this->table . " (username, email, password, role) VALUES (:username, :email, :password, :role)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':username', htmlspecialchars(strip_tags($username)));
-        $stmt->bindParam(':email', htmlspecialchars(strip_tags($email)));
-        $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
+
+        // Lidh parametrat me vlerat përkatëse
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $hashed_password);
         $stmt->bindParam(':role', $role);
 
-        return $stmt->execute() ? "Regjistrimi u krye me sukses!" : "Gabim gjatë regjistrimit!";
-    }
-
-    // Kyçja e përdoruesit
-    public function login($username, $password) {
-        $query = "SELECT id, username, password, role FROM " . $this->table_name . " WHERE username = :username";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':username', htmlspecialchars(strip_tags($username)));
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $row['password'])) {
-                session_start();
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['role'] = $row['role'];
-                return true;
-            }
+        // Ekzekuto query-n dhe kthe rezultatin
+        if ($stmt->execute()) {
+            return true;
         }
+
         return false;
     }
 }
 ?>
+
