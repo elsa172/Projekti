@@ -57,5 +57,29 @@ class User {
 
         return false;
     }
+
+
+    public function signin($email, $password) {
+        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE surname = :surname";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':surname', $surname);
+        $stmt->execute();
+
+        // Check if a record exists
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (password_verify($password, $row['password'])) {
+                // Start the session and store user data
+                session_start();
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['surname'] = $row['surname'];
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
 ?>

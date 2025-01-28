@@ -13,7 +13,7 @@ class Auth {
 
     public static function redirectIfNotLoggedIn() {
         if (!self::isLoggedIn()) {
-            header("Location: Signin.html");
+            header("Location: Signin.php");
             exit;
         }
     }
