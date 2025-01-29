@@ -1,3 +1,29 @@
+<?php
+include 'Database.php'; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $message = trim($_POST['message']);
+
+    if (!empty($name) && !empty($email) && !empty($message)) {
+        // Përdorim prepared statements 
+        $sql = "INSERT INTO messages (Name, Email, Message) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $name, $email, $message);
+
+        if ($stmt->execute()) {
+            echo "Mesazhi u dërgua me sukses!";
+        } else {
+            echo "Gabim gjatë dërgimit të mesazhit.";
+        }
+        $stmt->close();
+    } else {
+        echo "Ju lutem plotësoni të gjitha fushat!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,18 +53,19 @@
         <div class="form-section">
             <h1 class="h1">Contact us</h1>
             <p class="paragrafi">We'd love to hear from you! How can we help?</p>
-            <form>
-                <div class="inputBox">
-                    <input type="text" placeholder="Enter your name" required>
+        <form action="contact_form_handler.php" method="POST">
+               <div class="inputBox">
+                  <input type="text" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="inputBox">
-                    <input type="email" placeholder="Enter your email address" required>
+                  <input type="email" name="email" placeholder="Enter your email address" required>
                 </div>
                 <div class="inputBox">
-                    <textarea placeholder="Enter your message..." required></textarea>
+                 <textarea name="message" placeholder="Enter your message..." required></textarea>
                 </div>
-                <button type="submit" class="button">Submit</button>
-            </form>
+                 <button type="submit" class="button">Submit</button>
+        </form>
+
         </div>
         <div class="full-contact-info">
             <div class="illustration">
