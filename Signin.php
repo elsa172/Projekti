@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 </head>
 <body>
     <div class="container">
-        <form action=""  method="POST" class="sign-in-form">
+        <form action="" method="POST" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="social-media">
                 <a href="#" class="social-icon">
@@ -56,15 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                 </a>
             </div>
             <div class="input-form">
-                <input type="text" placeholder="Username" required>
+                <input type="text" name="usernameOrEmail" placeholder="Username or Email" required>
             </div>
             <div class="input-form">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
             <input type="submit" value="Sign-in" class="btn">
             <p class="account-text"> Don't have an account? <a href="Signup.php"> Sign up</a></p>
         </form>
-    </div>
-    
+
+
 </body>
 </html>
