@@ -227,7 +227,7 @@
         <!-- Call to Action -->
         <div class="cta">
             <p>Choose to create memories, not just hold events.</p>
-            <a href="#">Contact Us Today</a>
+            <a href="ContactUs.php">Contact Us Today</a>
         </div>
     </div>
     <footer class="footer">

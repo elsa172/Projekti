@@ -170,7 +170,7 @@
           From weddings to business conferences, we ensure every detail is perfect. 
           Here's what our happy customers have to say about their experiences.
         </p>
-        <a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\SuccessStories\SuccessStories.html"><button>Read our success stories</button></a>
+        <a href="SuccessStories.html"><button>Read our success stories</button></a>
       </div>
       <div class="container-djathtas">
         <div class="card">

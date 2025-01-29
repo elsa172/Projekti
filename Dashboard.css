@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #023535;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    min-height: 100px;
+    flex-wrap: wrap;
+}
+body {
+    margin: 0;
+    width: 100%;
+    background-color: #015958;
+    overflow-x: hidden;
+    padding: 0;
+}
+li,a,button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.logo{
+    cursor: pointer;/* cursorit kur bojna hover ja ndrrojm gjendejen*/
+    width: auto; 
+   max-height: 80px;
+   margin-right: 20px;
+}
+.nav-links{
+    list-style: none;
+}
+.nav-links li { 
+    display: inline-block;
+    padding: 0px 20px;
+
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    }
+.nav-links li a:hover{
+color: #015958 ;
+}
+button {
+    padding: 9px 25 px ;
+    background-color: #015958;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    color: #008F8C;
+    
+}
+.nav-butonat{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-sidebar {
+    width: 250px;
+    background-color: #1e272e;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    width: 100%;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    background-color: #2f3640;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+    background-color: #44bd32;
+}
+
+.dashboard-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    background-color: #015958;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #015958;
+}
+
+.dashboard-main {
+    padding: 20px;
+    flex: 1;
+    background-color: #f5f6fa;
+}
+
+.section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #2f3640;
+}
+
+.btn {
+    background-color: #015958;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #44bd32;
+}

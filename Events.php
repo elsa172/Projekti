@@ -37,13 +37,13 @@
         <h2>Create Your Event and Make It Unforgettable!</h2>
         <h2>Turn Your Event Ideas into Reality...</h2>
         <p>Have an exciting event idea? It’s time to bring it to life! Click here to add your event, set the details, and share your vision with the world. Whether it’s a small gathering or a large-scale celebration, our platform makes it easy to get started and manage every aspect of your event. Let’s make your event unforgettable!</p>
-       <a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Addevents\Addevents.html"> <button>Add Event</button></a>
+       <a href="Addevents.html"> <button>Add Event</button></a>
       </div>
       <div class="kuti-e-madhe">
         <h2>Ready to Take Charge of Your Event?</h2>
         <h2>Manage It Like a Pro!</h2>
         <p>Take control of your event like never before! With just a click, you can organize, track, and ensure everything runs smoothly. From planning to execution, our platform gives you the tools to manage every detail with ease. Ready to make your event a success? Start now and bring your vision to life! </p>
-       <a href="C:\Users\cakiq\OneDrive\Desktop\Projekti\Manage Your Event\Manage.html"> <button>Manage Event</button></a>
+       <a href="Manage.html"> <button>Manage Event</button></a>
       </div>
     </div>
 

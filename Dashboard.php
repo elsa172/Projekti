@@ -4,60 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title> 
+    <title>Eventopia Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
 </head>
 <body>
-
-<header>
-    <div class="header-logo">
-        <img src="" alt="">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Contact us</a></li>
-            <li><a href="">Log Out</a></li>
-            <li><a href="">Log In</a></li>
+<header >
+       <img class="logo" src="logoEventopia.png" alt="logo">
+       <nav>
+        <ul class="nav-links">
+            <li><a href="Homepage.php">Home</a></li>
+            <li><a href="AboutUs.php">About us</a></li>
+            <li><a href="Events.php">Events</a></li>
+            <li><a href="ContactUs.php">Contact us</a></li>
         </ul>
     </nav>
-</header>
+    <div class="nav-butonat">
+        <a  href="Homepage.php"><button>Log out</button></a>
 
-<h1>Welcome, Admin!</h1>
+    </div>
+    </header>
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <h2>Eventopia Admin</h2>
+            <ul class="sidebar-menu">
+                <li><a href="#add-events">Add Events</a></li>
+                <li><a href="#manage-users">Manage Users</a></li>
+                <li><a href="#add-reviews">Add Reviews</a></li>
+            </ul>
+        </aside>
 
-<section class="add-staf">
-    <h2>Add New Staff Member</h2>
-    <form action="" method="post">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required> <br>
+        <div class="dashboard-content">
+            <header class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+            </header>
 
-        <label for="experiences"> Experiences</label>
-        <input type="submit" name="create_staff" value="Add Staff Member">
-    </form>
-</section>
+            <main class="dashboard-main">
+                <section id="add-events" class="section">
+                    <h2>Add Events</h2>
+                    <button class="btn">Add New Event</button>
+                </section>
 
-<div class="actions">
-    <a href=""></a>
-    <a href=""></a>
-</div>
+                <section id="manage-users" class="section">
+                    <h2>Manage Users</h2>
+                    <button class="btn">View Users</button>
+                </section>
 
-<div class="div">
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Usertype</th>
-            <th>Email</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-       
-        </tbody>
-    </table>
-</div>
+                <section id="add-reviews" class="section">
+                    <h2>Add Reviews</h2>
+                    <button class="btn">Add Reviews</button>
+                </section>
+            </main>
+        </div>
+    </div>
 </body>
 </html>
-
-
