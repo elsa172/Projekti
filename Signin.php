@@ -1,33 +1,53 @@
 <?php
-// Përfshi klasën e bazës së të dhënave dhe klasën e përdoruesit
-require_once 'Database.php';
-require_once 'User.php';
+session_start();
+include 'Database.php'; // Përfshi klasën për databazën
 
-// Krijo një instancë të klasës Database
-$database = new Database();
-$db = $database->getConnection();
+// Inicializo lidhjen me databazën
+$dbInstance = new Database();
+$db = $dbInstance->getConnection(); // Merr lidhjen PDO
 
-// Krijo një instancë të klasës User dhe kaloni lidhjen me bazën
-$user = new User($db);
+$errorMessage = ''; // Variabël për të mbajtur mesazhin e gabimit
 
-// Kontrollo nëse forma është dërguar
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
-    // Merr të dhënat nga forma
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usernameOrEmail = trim($_POST['usernameOrEmail']); // Të dyja fushat mund të përdoren
+    $password = trim($_POST['password']);
 
-    // Thirri metodën signIn për të kontrolluar hyrjen
-    if ($user->signIn($username, $password)) {
-        echo "Hyrja u realizua me sukses!";
-        // Pas hyrjes, ridrejto në faqen e menaxhimit të eventeve
-        header("Location: Homepage.php");
-        exit();
+    // Kontrollo nëse fushat janë të mbushura
+    if (empty($usernameOrEmail) || empty($password)) {
+        $errorMessage = "Të gjitha fushat janë të detyrueshme!";
     } else {
-        echo "Emri i përdoruesit ose fjalëkalimi është i gabuar!";
+        try {
+            // Kontrollo nëse përdoruesi ekziston në databazë
+            $query = "SELECT * FROM user WHERE username = :usernameOrEmail OR email = :usernameOrEmail";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':usernameOrEmail', $usernameOrEmail);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Kontrollo nëse përdoruesi është gjetur
+            if ($user) {
+                // Verifikimi i fjalëkalimit
+                if (password_verify($password, $user['password'])) {
+                    // Përdoruesi është autentifikuar me sukses, ruaj të dhënat në sesion
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['role'] = $user['role'];
+
+                    // Ridrejto në faqen kryesore
+                    header("Location: homepage.php");
+                    exit();
+                } else {
+                    $errorMessage = "Fjalëkalimi nuk është i saktë!";
+                }
+            } else {
+                $errorMessage = "Ky përdorues nuk ekziston!";
+            }
+        } catch (PDOException $e) {
+            // Gabim në databazë
+            $errorMessage = "Gabim në databazë: " . $e->getMessage();
+        }
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
 </head>
 <body>
     <div class="container">
-        <form action=""  method="POST" class="sign-in-form">
+        <form action="" method="POST" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="social-media">
                 <a href="#" class="social-icon">
@@ -56,15 +76,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
                 </a>
             </div>
             <div class="input-form">
-                <input type="text" placeholder="Username" required>
+                <input type="text" name="usernameOrEmail" placeholder="Username or Email" required>
             </div>
             <div class="input-form">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
             <input type="submit" value="Sign-in" class="btn">
             <p class="account-text"> Don't have an account? <a href="Signup.php"> Sign up</a></p>
         </form>
+
+        <!-- Shfaq mesazhin e gabimit nëse ekziston -->
+        <?php if (!empty($errorMessage)): ?>
+            <div class="error-message">
+                <?php echo $errorMessage; ?>
+            </div>
+        <?php endif; ?>
     </div>
-    
+
+    <style>
+        /* Stilizimi i mesazhit të gabimit */
+        .error-message {
+            margin-top: 20px;
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Stilet kryesore për të gjithë faqen */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f8fc; /* Sfond neutral */
@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: space-between; /* Logo në të majtë dhe navigimi në të djathtë */
     align-items: center;
-    background-color: #8b4513; /* Ngjyrë kafe e errët për header */
+    background-color: #2c7873; /* Ngjyrë kafe e errët për header */
     color: white;
     padding: 10px 20px; /* Hapësirë e brendshme */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hije për elegancë */
