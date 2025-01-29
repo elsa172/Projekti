@@ -1,67 +1,48 @@
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f8fc; /* Sfond neutral */
+    background-color: #015958;
     margin: 0;
     padding: 0;
 }
 
-/* Header */
 header {
     display: flex;
-    justify-content: space-between; /* Logo në të majtë dhe navigimi në të djathtë */
+    justify-content: space-between;
     align-items: center;
-    background-color: #2c7873; /* Ngjyrë kafe e errët për header */
+    background-color: #023535;
     color: white;
-    padding: 10px 20px; /* Hapësirë e brendshme */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hije për elegancë */
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-logo img {
-    max-height: 50px; /* Kufizon madhësinë e logos */
+    max-height: 50px;
     height: auto;
 }
 
 nav ul {
     list-style: none;
-    display: flex; /* Elementet në linjë horizontale */
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    margin-left: 20px; /* Hapësirë mes elementeve */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #f0e68c; /* Ndryshon ngjyrën kur kalon miun mbi të */
-}
-
-/* Kontejneri për mesazhet */
 .messages-container {
-    max-width: 1200px; /* Kufizon gjerësinë e faqes */
-    margin: 40px auto; /* Qendron përmbajtjen në ekran */
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
-    background-color: white; /* Sfoni i bardhë për seksionin kryesor */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hije për theksim */
-    border-radius: 8px; /* Cepa të rrumbullakosur */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .messages-container h1 {
     font-size: 2rem;
-    color: #2c7873; /* Ngjyrë e butë për titullin */
+    color: #023535;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -69,14 +50,14 @@ table {
 }
 
 thead {
-    background-color: #8b4513; /* Ngjyra e sfondit për header-in e tabelës */
+    background-color: #015958;
     color: white;
 }
 
 th, td {
     text-align: left;
     padding: 12px 15px;
-    border: 1px solid #ddd; /* Vijë ndarëse */
+    border: 1px solid #ddd;
 }
 
 th {
@@ -86,29 +67,32 @@ th {
 
 td {
     font-size: 0.95rem;
-    color: #333; /* Tekst i errët për lexueshmëri */
+    color: #333;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Rreshta alternues për lexueshmëri */
-}
-
-tr:hover {
-    background-color: #f0f8ff; /* Efekt hover për ndërveprim */
-}
-
-/* Për ekrane më të vogla */
 @media (max-width: 768px) {
     .messages-container {
-        padding: 15px;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .header-logo img {
+        max-height: 40px;
     }
 
     nav ul {
-        flex-direction: column; /* Elementet në kolonë për pajisje të vogla */
-        align-items: flex-end;
+        flex-direction: column;
+        text-align: center;
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 5px 0;
     }
 }
