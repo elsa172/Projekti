@@ -1,0 +1,126 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:#023535;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-logo img {
+    width: 120px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #023535;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.events-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.events-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.events-container th,
+.events-container td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #555;
+    font-size: 1rem;
+}
+
+.events-container th {
+    background-color:#023535;
+    color: white;
+    font-weight: bold;
+}
+
+.events-container td {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.events-container td:hover {
+    background-color: #f1f1f1;
+}
+
+.events-container td a {
+    color: #018786;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background-color: #e0f7fa;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.events-container td a:hover {
+    background-color: #00796b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.events-container td a:active {
+    transform: translateY(0);
+}
+
+.events-container tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+
+.events-container tr:nth-child(odd) td {
+    background-color: #ffffff;
+}
+
+.events-container tr:hover td {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .events-container table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .events-container th, .events-container td {
+        padding: 12px;
+    }
+}
