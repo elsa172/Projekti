@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply form</title>
+    <link rel="stylesheet" href="applyform.css">
 </head>
 <body>
     <div class="container">
@@ -22,7 +23,7 @@
             <textarea name="description" id="description" rows="4" required></textarea>
 
             <label for="photo">Photo(Select one photo to upload)</label>
-            <input type="image" id="photo" name="photo" accept="image/*" required>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
 
             <button type="submit">Submit</button>
         </form>
