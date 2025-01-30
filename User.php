@@ -1,37 +1,30 @@
 <?php
 class User {
     private $conn;
-    private $table = "user"; // Emri i tabelës në bazën e të dhënave
+    private $table = "user";
+
+    public $id;
+    public $username;
+    public $email;
+    public $password;
 
     public function __construct($db) {
-        // Krijo lidhjen me bazën e të dhënave
         $this->conn = $db;
     }
 
-    // Metoda për regjistrimin e përdoruesve
-    public function signUp($username, $email, $password) {
-        // Kontrollo nëse emaili ekziston tashmë
-        if ($this->emailExists($email)) {
-            return false; // Emaili tashmë ekziston
-        }
+    public function create() {
+        $query = "INSERT INTO " . $this->table . " (username, email, password) VALUES (:username, :email, :password)";
 
-        // Përcakto rolin bazuar në email
-        $role = (strpos($email, '@admin.com') !== false) ? 'admin' : 'user';
-
-        // Fjalëkalimi i koduar (hashed)
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-        // Query për të futur të dhënat në tabelën users
-        $query = "INSERT INTO " . $this->table . " (username, email, password, role) VALUES (:username, :email, :password, :role)";
         $stmt = $this->conn->prepare($query);
 
-        // Lidh parametrat me vlerat përkatëse
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $hashed_password);
-        $stmt->bindParam(':role', $role);
+        $this->username = htmlspecialchars(strip_tags($this->username));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
 
-        // Ekzekuto query-n dhe kthe rezultatin
+        $stmt->bindParam(':username', $this->username);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password);
+
         if ($stmt->execute()) {
             return true;
         }
@@ -39,47 +32,54 @@ class User {
         return false;
     }
 
-    // Funksion për të kontrolluar nëse emaili ekziston
-    private function emailExists($email) {
-        $query = "SELECT id FROM " . $this->table . " WHERE email = :email LIMIT 1";
+    public function read() {
+        $query = "SELECT id, username, email FROM " . $this->table;
+
         $stmt = $this->conn->prepare($query);
-
-        // Lidh parametrin e emailit
-        $stmt->bindParam(':email', $email);
-
-        // Ekzekuto dhe kontrollo nëse emaili ekziston
         $stmt->execute();
 
-        // Nëse ka një rresht që kthehet, do të thotë që emaili ekziston
-        if ($stmt->rowCount() > 0) {
+        return $stmt;
+    }
+
+    public function update() {
+        $query = "UPDATE " . $this->table . " SET username = :username, email = :email WHERE id = :id";
+
+        $stmt = $this->conn->prepare($query);
+
+ 
+        $this->username = htmlspecialchars(strip_tags($this->username));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+  
+        $stmt->bindParam(':username', $this->username);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':id', $this->id);
+
+        if ($stmt->execute()) {
             return true;
         }
 
         return false;
     }
 
-
-    public function signin($email, $password) {
-        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE surname = :surname";
+    public function delete() {
+        $query = "DELETE FROM " . $this->table . " WHERE id = :id";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':surname', $surname);
-        $stmt->execute();
 
-        // Check if a record exists
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $row['password'])) {
-                // Start the session and store user data
-                session_start();
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['surname'] = $row['surname'];
-                return true;
-            }
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+
+        $stmt->bindParam(':id', $this->id);
+
+  
+        if ($stmt->execute()) {
+            return true;
         }
+
         return false;
     }
 }
-
-
 ?>

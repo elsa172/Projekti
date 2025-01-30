@@ -1,19 +1,16 @@
 <?php
-// Include the necessary database connection and User class file
-include_once 'Database.php'; // Make sure this is the correct path to Database.php
-include_once 'User.php'; // Assuming the User class is in a file called User.php
 
-// Create a new database connection
+include_once 'Database.php'; 
+include_once 'User.php'; 
+
+
 $database = new Database();
-$db = $database->getConnection(); // Get the connection
+$db = $database->getConnection(); 
 
-// Create an instance of the User class
-$user = new User($db); // $db is the database connection object
 
-// Retrieve users from the database
-$query = "SELECT id, username, email FROM user"; // Adjust table and fields as necessary
-$stmt = $db->prepare($query);
-$stmt->execute();
+$user = new User($db);
+
+$stmt = $user->read(); 
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +50,7 @@ $stmt->execute();
         <tr>
             <td><?php echo htmlspecialchars($row['username']); ?></td>
             <td><?php echo htmlspecialchars($row['email']); ?></td>
-            <td>*******</td> <!-- Optionally, you can display something else for password -->
+            <td>*******</td>
             <td>
                 <a href="edit_user.php?id=<?php echo $row['id']; ?>">Edit</a> |
                 <a href="delete_user.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
@@ -63,8 +60,6 @@ $stmt->execute();
     </tbody>
     </table>
 </div>
-</body>
-</html>
 
 </body>
 </html>
