@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,43 +15,43 @@
     </div>
     <nav>
         <ul>
-            <li><a href="Dashboard.php">Dashboard</a></li>
-           
+            <li><a href="adminDashboard.php">Dashboard</a></li>
         </ul>
     </nav>
 </header>
 
-<div class="main-container">
-    <h2>Manage Your Events</h2>
-    <div class="events-container">
-        <!-- Tabela ku do të shfaqen ngjarjet -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Event Name</th>
-                    <th>Event Date</th>
-                    <th>Location</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-                <tr>
-                    <td>Technology Expo</td>
-                    <td>2025-07-15</td>
-                    <td>San Francisco</td>
-                    <td>An expo showcasing the latest advancements in technology and innovations.</td>
-                    <td>
-                        <a href="edit_event.php?id=1">Edit</a> | 
-                        <a href="delete_event.php?id=1">Delete</a>
-                    </td>
-                </tr>
-                <!-- Për më shumë ngjarje, mund të shtohen dinamikisht nga databaza -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
+<div class="events-container">
+    <h2>Manage Events</h2>
+    <table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($events as $event): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($event['title']); ?></td>
+            <td><?php echo htmlspecialchars($event['event_date']); ?></td>
+            <td><?php echo htmlspecialchars($event['event_time']); ?></td>
+            <td><?php echo htmlspecialchars($event['location']); ?></td>
+            <td><?php echo htmlspecialchars($event['description']); ?></td>
+            <td>
+                <?php if (!empty($event['image_path'])): ?>
+                    <img src="<?php echo htmlspecialchars($event['image_path']); ?>" alt="Event Image" width="100">
+                <?php else: ?>
+                    No Image
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+ 
 </body>
 </html>

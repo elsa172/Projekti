@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color:#023535;
+    background-color: #023535;
     color: #fff;
     padding: 1rem;
     display: flex;
@@ -31,25 +31,14 @@ nav ul li a {
     font-weight: bold;
 }
 
-.main-container {
-    max-width: 1200px;
+.events-container {
+    max-width: 1000px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #023535;
     text-align: center;
-    margin-bottom: 2rem;
-}
-
-.events-container {
-    width: 100%;
-    overflow-x: auto;
 }
 
 .events-container table {
@@ -58,69 +47,67 @@ h2 {
     margin-top: 1rem;
 }
 
-.events-container th,
-.events-container td {
-    padding: 15px;
-    text-align: left;
+.events-container th, .events-container td {
+    padding: 12px;
     border: 1px solid #ddd;
-    color: #555;
-    font-size: 1rem;
+    text-align: center;
 }
 
 .events-container th {
-    background-color:#023535;
+    background-color: #023535;
     color: white;
-    font-weight: bold;
 }
 
-.events-container td {
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
+.action-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.events-container td:hover {
-    background-color: #f1f1f1;
-}
-
-.events-container td a {
-    color: #018786;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
+.edit-btn, .delete-btn, .add-btn {
+    padding: 10px 15px;
+    border: none;
     border-radius: 6px;
-    background-color: #e0f7fa;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.events-container td a:hover {
-    background-color: #00796b;
+.edit-btn {
+    background-color: #007bff;
     color: white;
-    transform: translateY(-2px);
 }
 
-.events-container td a:active {
-    transform: translateY(0);
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
 }
 
-.events-container tr:nth-child(even) td {
-    background-color: #f3f3f3;
+.add-form {
+    margin-top: 1rem;
 }
 
-.events-container tr:nth-child(odd) td {
-    background-color: #ffffff;
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    border-radius: 8px;
 }
 
-.events-container tr:hover td {
-    background-color: #f1f1f1;
+.edit-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .events-container table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
-    }
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
 
-    .events-container th, .events-container td {
-        padding: 12px;
-    }
+.add-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }
