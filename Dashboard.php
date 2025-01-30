@@ -27,9 +27,9 @@
         <aside class="dashboard-sidebar">
             <h2>Eventopia Admin</h2>
             <ul class="sidebar-menu">
-                <li><a href="#add-events">Add Events</a></li>
-                <li><a href="#manage-users">Manage Users</a></li>
-                <li><a href="#add-reviews">Add Reviews</a></li>
+                <li><a href="events-manage.php">Add Events</a></li>
+                <li><a href="users-manage.php">Manage Users</a></li>
+                <li><a href="reviews-manage.php">Add Reviews</a></li>
             </ul>
         </aside>
 
@@ -41,17 +41,17 @@
             <main class="dashboard-main">
                 <section id="add-events" class="section">
                     <h2>Add Events</h2>
-                    <button class="btn">Add New Event</button>
+                    <a href="events-manage.php"><button class="btn">Add New Event</button></a>
                 </section>
 
                 <section id="manage-users" class="section">
                     <h2>Manage Users</h2>
-                    <button class="btn">View Users</button>
+                   <a href="users-manage.php"> <button class="btn">View Users</button></a>
                 </section>
 
                 <section id="add-reviews" class="section">
                     <h2>Add Reviews</h2>
-                    <button class="btn">Add Reviews</button>
+                    <a href="reviews-manage.php"><button class="btn">Add Reviews</button></a>
                 </section>
             </main>
         </div>
