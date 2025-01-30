@@ -50,6 +50,16 @@ $applications = $aplikimi->getApplications();
         <td><img src="<?= isset($app['Photo']) ? $app['Photo'] : 'default.jpg' ?>" alt="Photo" width="50"></td>
     </tr>
 <?php endforeach; ?>
+<h2>Shto Stafin e Ri</h2>
+<form action="add.staff.php" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="surname" placeholder="Surname" required>
+    <input type="text" name="role" placeholder="Role" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <input type="file" name="photo" required>
+    <button type="submit">Add Staff</button>
+</form>
+
 
 
         </table>

@@ -1,3 +1,8 @@
+<?php
+require_once "aplikimet_lidhja.php"; 
+$aplikimi = new Aplikimi();
+$staffMembers = $aplikimi->getStaff(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,64 +152,21 @@
         <script src="Script-slider.js"></script>
         <!--team-->
         <section class="team-section">
-            <h2>MEET OUR TEAM</h2>
-            <div class="team-container">
-
-                <div class="team-card">
-                    <img src="istockphoto-1503232125-612x612.jpg" alt="Arben H.">
-                    <h3>Arben H.</h3>
-                    <p class="role">Corporate Event Planner</p>
-                    <div class="card-details">
-                        <p>Arben is a visionary leader excels at organizing seamless corporate events.</p>
-                    </div>
-                </div>
-    
-                <div class="team-card">
-                    <img src="360_F_678098211_RBtjy68o4sN0myCWY3OrM9revJ9JOw41.jpg" alt="Aurora G.">
-                    <h3>Aurora G.</h3>
-                    <p class="role">Wedding Planner</p>
-                    <div class="card-details">
-                        <p>Aurora specializes in crafting personalized, unforgettable weddings for every couple.</p>
-                    </div>
-                </div>
-        
-                <div class="team-card">
-                    <img src="download (1).jpg" alt="Elona R.">
-                    <h3>Elona R.</h3>
-                    <p class="role">Nightlife Event Planner</p>
-                    <div class="card-details">
-                        <p>Elona is passionate about creating exciting, dynamic nightlife events.</p>
-                    </div>
-                </div>
-        
-                <div class="team-card">
-                    <img src="team1.avif" alt="Blendi H.">
-                    <h3>Blendi H.</h3>
-                    <p class="role">Artistic Event Coordinator</p>
-                    <div class="card-details">
-                        <p>Blendi brings creativity and a unique artistic touch to every event.</p>
-                    </div>
-                </div>
-        
-                <div class="team-card">
-                    <img src="istockphoto-2058319417-612x612.jpg" alt="Alketa B.">
-                    <h3>Alketa B.</h3>
-                    <p class="role">Birthday Event Planner</p>
-                    <div class="card-details">
-                        <p>Alketa specializes in planning memorable birthday parties for all ages.</p>
-                    </div>
-                </div>
-        
-                <div class="team-card">
-                    <img src="istockphoto-1466995518-612x612.jpg" alt="Albana D.">
-                    <h3>Albana D.</h3>
-                    <p class="role">Corporate Event Planner</p>
-                    <div class="card-details">
-                        <p>Albana is an expert at organizing successful corporate events and conferences.</p>
-                    </div>
+    <h2>MEET OUR TEAM</h2>
+    <div class="team-container">
+        <?php foreach ($staffMembers as $staff): ?>
+            <div class="team-card">
+                <img src="<?= isset($staff['Photo']) ? $staff['Photo'] : 'default.jpg' ?>" alt="<?= $staff['Name'] ?>">
+                <h3><?= htmlspecialchars($staff['Name']) ?></h3>
+                <p class="role"><?= htmlspecialchars($staff['Role']) ?></p>
+                <div class="card-details">
+                    <p><?= htmlspecialchars($staff['Description']) ?></p>
                 </div>
             </div>
-        </section>
+        <?php endforeach; ?>
+    </div>
+</section>
+
 
         <!--ka me pas hala modifikime-->
         <section class="join-team-section">

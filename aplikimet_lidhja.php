@@ -34,7 +34,28 @@ class Aplikimi {
         
         return $applications;
     }
+
+    public function addStaff($name, $surname, $role, $description, $photo) {
+        $sql = "INSERT INTO staff (Name, Surname, Role, Description, Photo) 
+                VALUES (:name, :surname, :role, :description, :photo)";
+        $stmt = $this->conn->prepare($sql);
+        
+        return $stmt->execute([
+            ':name' => $name,
+            ':surname' => $surname,
+            ':role' => $role,
+            ':description' => $description,
+            ':photo' => $photo
+        ]);
+    }
     
+
+    public function getStaff() {
+        $sql = "SELECT * FROM staff";
+        $stmt = $this->conn->query($sql);
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }
 ?>
