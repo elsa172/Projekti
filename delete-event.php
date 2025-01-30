@@ -1,15 +1,23 @@
 <?php
-include 'Event.php';
+require_once 'Database.php';
+require_once 'Event.php';
 
-$event = new Event();
+$database = new Database();
+$db = $database->getConnection();
 
-if (isset($_GET['delete'])) {
-    $eventId = $_GET['delete'];
-    if ($event->deleteEvent($eventId)) {
-        header('Location: events-manage.php');  
-        exit;
+$event = new Event($db);
+
+if (isset($_GET['id'])) {
+    $event->id = $_GET['id'];
+
+    if ($event->deleteEvent()) {
+        echo "Event was deleted successfully.";
+        header("Location: events-manage.php");
+        exit();
     } else {
         echo "Unable to delete the event.";
     }
+} else {
+    die('ERROR: Event ID not found.');
 }
 ?>

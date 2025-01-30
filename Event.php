@@ -29,12 +29,16 @@ class Event {
     }
 
 
-    public function deleteEvent($id) {
-        $sql = "DELETE FROM events WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$id]);
+    public function deleteEvent() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+    
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $stmt->bindParam(':id', $this->id);
+    
+        return $stmt->execute();
     }
-
+    
     public function getEvents() {
         $sql = "SELECT * FROM events";
         $stmt = $this->conn->prepare($sql);
