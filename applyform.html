@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application</h1>
+        <form action="#" method="Post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="surname" required>
+
+            <label for="role"> Wanted role:</label>
+            <input type="text" name="role" id="role" required>
+
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="4" required></textarea>
+
+            <label for="photo">Photo(Select one photo to upload)</label>
+            <input type="image" id="photo" name="photo" accept="image/*" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
