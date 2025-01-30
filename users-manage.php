@@ -1,3 +1,21 @@
+<?php
+// Include the necessary database connection and User class file
+include_once 'Database.php'; // Make sure this is the correct path to Database.php
+include_once 'User.php'; // Assuming the User class is in a file called User.php
+
+// Create a new database connection
+$database = new Database();
+$db = $database->getConnection(); // Get the connection
+
+// Create an instance of the User class
+$user = new User($db); // $db is the database connection object
+
+// Retrieve users from the database
+$query = "SELECT id, username, email FROM user"; // Adjust table and fields as necessary
+$stmt = $db->prepare($query);
+$stmt->execute();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,27 +49,22 @@
         </tr>
     </thead>
     <tbody>
+        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
         <tr>
-            <td>user1</td>
-            <td>user1@example.com</td>
-            <td>*******</td>
+            <td><?php echo htmlspecialchars($row['username']); ?></td>
+            <td><?php echo htmlspecialchars($row['email']); ?></td>
+            <td>*******</td> <!-- Optionally, you can display something else for password -->
             <td>
-                <a href="#">Edit</a> |
-                <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                <a href="edit_user.php?id=<?php echo $row['id']; ?>">Edit</a> |
+                <a href="delete_user.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
             </td>
         </tr>
-        <tr>
-            <td>user2</td>
-            <td>user2@example.com</td>
-            <td>*******</td>
-            <td>
-                <a href="#">Edit</a> |
-                <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
-            </td>
-        </tr>
+        <?php endwhile; ?>
     </tbody>
-</table>
+    </table>
 </div>
+</body>
+</html>
 
 </body>
 </html>
