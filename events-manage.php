@@ -1,15 +1,12 @@
 <?php
-include 'Event.php';
+include_once 'Database.php';
+include_once 'Event.php';
 
-$event = new Event();
-$events = $event->getEvents(); 
+$database = new Database();
+$db = $database->getConnection();
 
-if (isset($_GET['delete'])) {
-    $eventId = $_GET['delete'];
-    $event->deleteEvent($eventId); 
-    header('Location: events-manage.php'); 
-    exit;
-}
+$event = new Event($db);
+$stmt = $event->read();
 ?>
 
 <!DOCTYPE html>
@@ -36,39 +33,39 @@ if (isset($_GET['delete'])) {
 <div class="events-container">
     <h2>Manage Events</h2>
     <table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($events as $event): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($event['title']); ?></td>
-            <td><?php echo htmlspecialchars($event['date']); ?></td>
-            <td><?php echo htmlspecialchars($event['time']); ?></td>
-            <td><?php echo htmlspecialchars($event['location']); ?></td>
-            <td><?php echo htmlspecialchars($event['description']); ?></td>
-            <td>
-                <?php if (!empty($event['image'])): ?>
-                    <img src="<?php echo htmlspecialchars($event['image']); ?>" alt="Event Image" width="100">
-                <?php else: ?>
-                    No Image
-                <?php endif; ?>
-            </td>
-            <td>
-                <a href="edit-event.php">Edit</a> 
-                <a href="delete-event.php" onclick="return confirm('Are you sure you want to delete this event?')">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($row['title']); ?></td>
+                <td><?php echo htmlspecialchars($row['date']); ?></td>
+                <td><?php echo htmlspecialchars($row['time']); ?></td>
+                <td><?php echo htmlspecialchars($row['location']); ?></td>
+                <td><?php echo htmlspecialchars($row['description']); ?></td>
+                <td>
+                    <?php if (!empty($row['image'])): ?>
+                        <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="Event Image" width="100">
+                    <?php else: ?>
+                        No Image
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <a href="edit-event.php?id=<?php echo htmlspecialchars($row['id']); ?>">Edit</a> |
+                    <a href="delete-event.php?id=<?php echo htmlspecialchars($row['id']); ?>" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
     </table>
 </div>
 

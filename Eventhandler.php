@@ -1,7 +1,11 @@
 <?php
-include 'Event.php';
+include_once 'Database.php';
+include_once 'Event.php';
 
-$event = new Event();
+$database = new Database();
+$db = $database->getConnection();
+
+$event = new Event($db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = trim($_POST['event-title']);

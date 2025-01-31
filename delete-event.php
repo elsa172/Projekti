@@ -1,23 +1,20 @@
 <?php
-require_once 'Database.php';
-require_once 'Event.php';
+include_once 'Database.php';
+include_once 'Event.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $event = new Event($db);
 
-if (isset($_GET['id'])) {
-    $event->id = $_GET['id'];
-
-    if ($event->deleteEvent()) {
-        echo "Event was deleted successfully.";
-        header("Location: events-manage.php");
-        exit();
+$id = $_GET['id'] ?? null;
+if ($id) {
+    if ($event->delete($id)) {
+        echo "<script>alert('Eventi u fshi me sukses!'); window.location.href = 'events-manage.php';</script>";
     } else {
-        echo "Unable to delete the event.";
+        echo "<script>alert('Gabim gjatë fshirjes së eventit'); window.location.href = 'events-manage.php';</script>";
     }
 } else {
-    die('ERROR: Event ID not found.');
+    echo "Error: ID not found.";
 }
 ?>
