@@ -173,7 +173,7 @@ $staffMembers = $aplikimi->getStaff();
             <h2>Join Our Team</h2>
             <p>Become part of our exceptional team and help create unforgettable events!</p>
             <p>If you are passionate about event planning and want to be part of a creative and dynamic team, we would love to hear from you.</p>
-            <a href="contact.html" class="join-team-button">Apply Now</a>
+            <a href="applyform.php" class="join-team-button">Apply Now</a>
         </section>
 
         <!-- Client Choose us -->
