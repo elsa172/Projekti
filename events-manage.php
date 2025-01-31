@@ -31,7 +31,7 @@ $stmt = $event->read();
 </header>
 
 <div class="events-container">
-    <h2>Manage Events</h2>
+    <h2>Events from Clients Forms</h2>
     <table>
         <thead>
             <tr>
