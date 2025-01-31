@@ -15,6 +15,7 @@ class Event {
         $this->conn = $db;
     }
 
+
     public function addEvent($title, $date, $time, $location, $description, $image) {
         $query = "INSERT INTO " . $this->table . " (title, date, time, location, description, image) 
                   VALUES (:title, :date, :time, :location, :description, :image)";
@@ -27,6 +28,7 @@ class Event {
         $this->description = htmlspecialchars(strip_tags($description));
         $this->image = htmlspecialchars(strip_tags($image));
 
+
         $stmt->bindParam(':title', $this->title);
         $stmt->bindParam(':date', $this->date);
         $stmt->bindParam(':time', $this->time);
@@ -34,9 +36,10 @@ class Event {
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':image', $this->image);
 
-       
+
         return $stmt->execute();
     }
+
 
     public function eventExists($title, $date) {
         $query = "SELECT id FROM " . $this->table . " WHERE title = :title AND date = :date";
@@ -60,6 +63,7 @@ class Event {
         return $stmt;
     }
 
+
     public function getEventById($id) {
         $query = "SELECT * FROM " . $this->table . " WHERE id = :id";
         $stmt = $this->conn->prepare($query);
@@ -67,6 +71,7 @@ class Event {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 
     public function update() {
         $query = "UPDATE " . $this->table . " SET title = :title, date = :date, time = :time, location = :location, 
@@ -81,7 +86,6 @@ class Event {
         $this->image = htmlspecialchars(strip_tags($this->image));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
-
         $stmt->bindParam(':title', $this->title);
         $stmt->bindParam(':date', $this->date);
         $stmt->bindParam(':time', $this->time);
@@ -90,9 +94,9 @@ class Event {
         $stmt->bindParam(':image', $this->image);
         $stmt->bindParam(':id', $this->id);
 
-       
         return $stmt->execute();
     }
+
 
     public function delete($id) {
         $query = "DELETE FROM " . $this->table . " WHERE id = :id";
@@ -101,5 +105,43 @@ class Event {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+    public function addToCurrent($id) {
+        if (empty($id)) {
+            die("Gabim: ID e eventit mungon!");
+        }
+        
+        // Merr të dhënat nga tabela 'events'
+        $query = "SELECT * FROM events WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        
+        if (!$stmt->execute()) {
+            $errorInfo = $stmt->errorInfo();
+            die('Error executing query: ' . implode(" | ", $errorInfo));
+        }
+    
+        $event = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($event) {
+            // Shto eventin në tabelën 'eventetaktuale'
+            $query2 = "INSERT INTO eventetaktuale (title, description, date, image) 
+                       VALUES (:title, :description, :date, :image)";
+            $stmt2 = $this->conn->prepare($query2);
+            $stmt2->bindParam(':title', $event["title"]);
+            $stmt2->bindParam(':description', $event["description"]);
+            $stmt2->bindParam(':date', $event["date"]);
+            $stmt2->bindParam(':image', $event["image"]);
+    
+            if ($stmt2->execute()) {
+                return true;
+            } else {
+                $errorInfo = $stmt2->errorInfo();
+                die('Error inserting into eventetaktuale: ' . implode(" | ", $errorInfo));
+            }
+        }
+        return false;
+    }
 }
+    
+
 ?>
