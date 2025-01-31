@@ -1,16 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #015958; /* Sfond neutral */
+    background-color: #015958; 
     margin: 0;
     padding: 0;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #023535; /* Ngjyrë e errët për header */
+    background-color: #023535; 
     color: white;
     padding: 10px 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,7 +58,6 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -67,7 +65,7 @@ table {
 }
 
 thead {
-    background-color: #015958; /* Ngjyra e sfondit për header-in e tabelës */
+    background-color: #015958; 
     color: white;
 }
 
@@ -97,7 +95,6 @@ tr:hover {
     background-color: #f0f8ff;
 }
 
-/* Për ekrane më të vogla */
 @media (max-width: 768px) {
     .messages-container {
         padding: 15px;

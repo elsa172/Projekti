@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $aplikimi = new Aplikimi();
     $aplikimi->addStaff($name, $surname, $role, $description, 'uploads/' . $photo);
     
-    echo "Staff added successfully!";
+    echo "<script>
+            alert('Staff added successfully!');
+            window.location.href = 'adminStaff.php'; // Kthehu në faqen adminStaff.php
+          </script>";
 }
 ?>

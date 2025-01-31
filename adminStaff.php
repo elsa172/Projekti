@@ -25,7 +25,7 @@ $staffMembers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="#">Dashboard</a></li>
             </ul>
         </nav>
-    </header>
+</header>
 
     <div class="container">
         <h1>Staff List</h1>
@@ -55,9 +55,17 @@ $staffMembers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
             </tr>
             <?php endforeach; ?>
-
         </table>
-    </div>
 
+        <h2>Add New Staff</h2>
+        <form action="add.staff.php" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="surname" placeholder="Surname" required>
+            <input type="text" name="role" placeholder="Role" required>
+            <textarea name="description" placeholder="Description" required></textarea>
+            <input type="file" name="photo" required>
+            <button type="submit">Add Staff</button>
+        </form>
+    </div>
 </body>
 </html>
