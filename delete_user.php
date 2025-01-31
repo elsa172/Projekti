@@ -1,10 +1,3 @@
-<?php
-include_once 'Database.php';
-include_once 'User.php';
-
-$database = new Database();
-$db = $database->getConnection(); 
-
 
 $user = new User($db);
 
