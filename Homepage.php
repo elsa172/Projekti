@@ -1,3 +1,13 @@
+<?php
+require_once 'Database.php';
+require_once 'Review.php';
+
+$db = new Database();
+$conn = $db->getConnection(); 
+
+$reviewObj = new Review($conn);
+$reviews = $reviewObj->getReviews(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,41 +167,52 @@
     <!-- Linking SwiperJS script for slider-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="Script-slider.js"></script>
-</section>
+</section> 
 <section class="reviews">
-    <div class="review">
-      <div class="container-majtas">
-        <h1>Read what our customers love about us</h1>
-        <p>
-          Organizing local events has never been this easy! Our platform helps 
-          you streamline event management, connect with participants, and create unforgettable moments.
-        </p>
-        <p>
-          From weddings to business conferences, we ensure every detail is perfect. 
-          Here's what our happy customers have to say about their experiences.
-        </p>
-        <a href="SuccessStories.html"><button>Read our success stories</button></a>
-        <section class="add-review">
-        <section class="add-review">
-    <div class="container">
-        <h2>Add Your Review</h2>
-        <form id="reviewForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="review">Your Review:</label>
-                <textarea id="review" name="review" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-button">Submit Review</button>
-        </form>
-    </div>
-</section>
+        <h2>Customer Reviews</h2>
+        <div class="review-list">
+            <?php if ($reviews): ?>
+                <?php foreach ($reviews as $review): ?>
+                    <div class="review-item">
+                        <?php if ($review['photo']): ?>
+                            <img src="<?php echo htmlspecialchars($review['photo']); ?>" alt="User Photo">
+                        <?php else: ?>
+                            <img src="default-user.jpg" alt="User Photo">
+                        <?php endif; ?>
+                        <h3><?php echo htmlspecialchars($review['name']); ?></h3>
+                        <p><?php echo nl2br(htmlspecialchars($review['review'])); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No reviews found.</p>
+            <?php endif; ?>
+        </div>
+    </section>
+    <a href="SuccessStories.html"><button>Read our success stories</button></a>
+    <section class="add-review">
+        <div class="container">
+            <h2>Add Your Review</h2>
+            <form id="reviewForm" action="add_review.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo:</label>
+                    <input type="file" id="photo" name="photo">
+                </div>
+                <div class="form-group">
+                    <label for="review">Your Review:</label>
+                    <textarea id="review" name="review" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Review</button>
+            </form>
+        </div>
+    </section>
 <script>document.getElementById('reviewForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -219,49 +240,8 @@
     document.getElementById('reviewForm').reset();});
 </script>
         </div>
-      <div class="container-djathtas">
-        <div class="card">
-          <img src="User1.jpeg" alt="User">
-          <div class="card-content">
-            <span><i class="ri-double-quotes-l"></i></span>
-            <div class="card-details">
-              <p>The team made my wedding a dream come true! Everything was so well-organized.</p>
-              <h4>Elona H.</h4>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="User2.webp" alt="User">
-          <div class="card-content">
-            <span><i class="ri-double-quotes-l"></i></span>
-            <div class="card-details">
-              <p>Our business event went smoothly, thanks to their expert planning!</p>
-              <h4>Arben K.</h4>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="Useri3.webp" alt="User">
-          <div class="card-content">
-            <span><i class="ri-double-quotes-l"></i></span>
-            <div class="card-details">
-              <p>Their platform is a lifesaver for managing community festivals effortlessly.</p>
-              <h4>Erona L.</h4>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="User4.jpeg" alt="User">
-          <div class="card-content">
-            <span><i class="ri-double-quotes-l"></i></span>
-            <div class="card-details">
-              <p>Highly recommend their services! Our gala dinner was a huge success.</p>
-              <h4>Deon T.</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      
+       
   </section>
     
 </body>

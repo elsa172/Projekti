@@ -678,7 +678,7 @@ button:hover{
     padding: 40px 20px;
     background-color: #f9f9f9;
     margin-top: 40px;
-    border-top: 2px solid #007bff;
+    border-top: 2px solid #023535;
     width: 100%;
 }
 
@@ -715,15 +715,15 @@ button:hover{
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #007bff;
+    border-color: #023535;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: #015958;
 }
 
 .submit-button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #023535;
     color: white;
     border: none;
     border-radius: 8px;
@@ -734,7 +734,7 @@ button:hover{
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color:  #015958;
 }
 
 

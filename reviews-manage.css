@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Header */
+
 header {
     background-color: #023535;
     color: #fff;
@@ -17,12 +17,11 @@ header {
     align-items: center;
 }
 
-/* Logo e header-it */
+
 header .header-logo img {
     width: 120px;
 }
 
-/* Navigacioni */
 nav ul {
     list-style-type: none;
     display: flex;
@@ -35,7 +34,7 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Kontejneri i recensioneve */
+
 .reviews-container {
     max-width: 1000px;
     margin: 2rem auto;
@@ -46,7 +45,6 @@ nav ul li a {
     text-align: center;
 }
 
-/* Tabela e recensioneve */
 .reviews-container table {
     width: 100%;
     border-collapse: collapse;
@@ -64,7 +62,7 @@ nav ul li a {
     color: white;
 }
 
-/* Butonat për menaxhimin e recensioneve */
+
 .reviews-container a {
     color: #007bff;
     text-decoration: none;
