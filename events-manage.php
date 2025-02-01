@@ -62,7 +62,7 @@ $stmt = $event->read();
                 <td>
                     <a href="edit-event.php?id=<?php echo htmlspecialchars($row['id']); ?>">Edit</a> |
                     <a href="delete-event.php?id=<?php echo htmlspecialchars($row['id']); ?>" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a> |
-                    <a href="add-event.php?id=<?php echo $row['id']; ?>">Add</a> 
+                    <a href="add-event.php?id=<?php echo htmlspecialchars($row['id']); ?>">Add</a> 
                     </td>
                 </td>
             </tr>

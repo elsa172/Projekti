@@ -5,26 +5,29 @@ class Eventetaktuale {
 
     public $id;
     public $title;
+    public $date;
+    public $time;
+    public $location;
     public $description;
-    public $event_date;
     public $image;
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
-    public function addEventToCurrent($title, $description, $event_date, $image) {
-        $query = "INSERT INTO " . $this->table . " (title, description, event_date, image) 
-                  VALUES (:title, :description, :event_date, :image)";
+    public function addEventToCurrent($title, $date, $time, $location, $description, $image) {
+        $query = "INSERT INTO " . $this->table . " (title, date, time, location, description, image) 
+                  VALUES (:title, :date, :time, :location, :description, :image)";
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':time', $time);
+        $stmt->bindParam(':location', $location);
         $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':event_date', $event_date);
         $stmt->bindParam(':image', $image);
 
         return $stmt->execute();
     }
 }
 ?>
-

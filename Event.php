@@ -16,6 +16,8 @@ class Event {
     }
 
 
+
+
     public function addEvent($title, $date, $time, $location, $description, $image) {
         $query = "INSERT INTO " . $this->table . " (title, date, time, location, description, image) 
                   VALUES (:title, :date, :time, :location, :description, :image)";
@@ -109,39 +111,53 @@ class Event {
         if (empty($id)) {
             die("Gabim: ID e eventit mungon!");
         }
-        
-        // Merr të dhënat nga tabela 'events'
+
+        // Kontrollo nëse eventi tashmë ekziston në `eventetaktuale`
+        $checkQuery = "SELECT id FROM eventetaktuale WHERE id = :id";
+        $checkStmt = $this->conn->prepare($checkQuery);
+        $checkStmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $checkStmt->execute();
+
+        if ($checkStmt->rowCount() > 0) {
+            die("Gabim: Ky event është shtuar tashmë!");
+        }
+
+        // Marr të dhënat nga `events`
         $query = "SELECT * FROM events WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        
+
         if (!$stmt->execute()) {
             $errorInfo = $stmt->errorInfo();
-            die('Error executing query: ' . implode(" | ", $errorInfo));
+            die('Gabim gjatë ekzekutimit të query: ' . implode(" | ", $errorInfo));
         }
-    
+
         $event = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
         if ($event) {
-            // Shto eventin në tabelën 'eventetaktuale'
-            $query2 = "INSERT INTO eventetaktuale (title, description, date, image) 
-                       VALUES (:title, :description, :date, :image)";
+            // Shto eventin në tabelën `eventetaktuale`
+            $query2 = "INSERT INTO eventetaktuale (id, title, date, time, location, description, image) 
+                       VALUES (:id, :title, :date, :time, :location, :description, :image)";
             $stmt2 = $this->conn->prepare($query2);
+            $stmt2->bindParam(':id', $event["id"]);
             $stmt2->bindParam(':title', $event["title"]);
-            $stmt2->bindParam(':description', $event["description"]);
             $stmt2->bindParam(':date', $event["date"]);
+            $stmt2->bindParam(':time', $event["time"]);
+            $stmt2->bindParam(':location', $event["location"]);
+            $stmt2->bindParam(':description', $event["description"]);
             $stmt2->bindParam(':image', $event["image"]);
-    
+
             if ($stmt2->execute()) {
                 return true;
             } else {
                 $errorInfo = $stmt2->errorInfo();
-                die('Error inserting into eventetaktuale: ' . implode(" | ", $errorInfo));
+                die('Gabim gjatë shtimit në eventetaktuale: ' . implode(" | ", $errorInfo));
             }
         }
         return false;
     }
 }
+
     
 
 ?>
