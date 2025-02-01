@@ -171,8 +171,54 @@
           Here's what our happy customers have to say about their experiences.
         </p>
         <a href="SuccessStories.html"><button>Read our success stories</button></a>
-        
-      </div>
+        <section class="add-review">
+        <section class="add-review">
+    <div class="container">
+        <h2>Add Your Review</h2>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit Review</button>
+        </form>
+    </div>
+</section>
+<script>document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const review = document.getElementById('review').value;
+
+    const newReview = document.createElement('div');
+    newReview.classList.add('card');
+    newReview.innerHTML = `
+        <img src="default-user.jpg" alt="User">
+        <div class="card-content">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <div class="card-details">
+                <p>${review}</p>
+                <h4>${name}</h4>
+            </div>
+        </div>
+    `;
+
+    document.querySelector('.container-djathtas').appendChild(newReview);
+
+
+    document.getElementById('reviewForm').reset();});
+</script>
+        </div>
       <div class="container-djathtas">
         <div class="card">
           <img src="User1.jpeg" alt="User">
