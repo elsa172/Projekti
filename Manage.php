@@ -82,25 +82,6 @@
             </div>
         </div>
         
-        <!-- Required Services -->
-        <div class="required-services">
-            <h2>Required Services</h2>
-            <div class="form-group">
-                <label>Select one or more services</label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="services[]" value="Catering"> Catering</label>
-                    <label><input type="checkbox" name="services[]" value="Decoration"> Decoration</label>
-                    <label><input type="checkbox" name="services[]" value="Photography/Videography"> Photography/Videography</label>
-                    <label><input type="checkbox" name="services[]" value="Music/Live Performance"> Music/Live Performance</label>
-                    <label><input type="checkbox" name="services[]" value="Audio-Visual Technology"> Audio-Visual Technology</label>
-                    <label><input type="checkbox" name="services[]" value="Transportation for Guests"> Transportation for Guests</label>
-                    <label><input type="checkbox" name="services[]" value="Security"> Security</label>
-                    <label><input type="checkbox" name="services[]" value="Coordination Assistance"> Coordination Assistance</label>
-                    <label><input type="checkbox" name="services[]" value="Other"> Other: <span>(write it on Special Requests)</span></label>
-                </div>
-            </div>
-        </div>
-        
         <!-- Estimated Budget -->
         <div class="estimated-budget">
             <h2>Estimated Budget</h2>
@@ -142,7 +123,7 @@
             </div>
         </div>
         
-        <button type="submit">Book this event</button>
+        <button type="submit" class="btn">Book this event</button>
     </form>
     </div>  
 </body>

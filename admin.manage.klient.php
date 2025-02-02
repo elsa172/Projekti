@@ -45,7 +45,6 @@ $manageeventfromklient = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Address</th>
                 <th>Event</th>
                 <th>Attendees</th>
-                <th>Services</th>
                 <th>Budget</th>
                 <th>Special Requests</th>
                 <th>Card Type</th>
@@ -63,27 +62,11 @@ $manageeventfromklient = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($event['City']) ?></td>
                 <td><?= htmlspecialchars($event['Event_name']) ?></td>
                 <td><?= htmlspecialchars($event['Event_date']) ?></td>
-
-                <!-- Formatimi i Start Time -->
                 <td><?= htmlspecialchars(date("H:i", strtotime($event['Start_time']))) ?></td>
-
-                <!-- Formatimi i End Time -->
                 <td><?= htmlspecialchars(date("H:i", strtotime($event['End_time']))) ?></td>
-
                 <td><?= htmlspecialchars($event['Adress']) ?></td>
                 <td><?= htmlspecialchars($event['Event_preferences']) ?></td>
                 <td><?= htmlspecialchars($event['Attendees']) ?></td>
-                <td>
-<?php
-    $services = json_decode($event['Services']);
-    if (is_array($services)) {
-        echo htmlspecialchars(implode(', ', $services)); // Përdor implode për array
-    } else {
-        echo "No services"; // Nëse nuk është array, shfaq një mesazh
-    }
-    ?>
-</td>
-
                 <td><?= htmlspecialchars($event['Budget']) ?></td>
                 <td><?= htmlspecialchars($event['Speial_request']) ?></td>
                 <td><?= htmlspecialchars($event['Card_type']) ?></td>

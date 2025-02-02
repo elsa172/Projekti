@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $start_time = isset($_POST['start_time']) ? substr($_POST['start_time'], 0, 5) : ''; 
         $end_time = isset($_POST['end_time']) ? substr($_POST['end_time'], 0, 5) : ''; 
 
-        $sql = "INSERT INTO manageeventfromklient (Name, Surname, Email, Phone, City, Event_name, Event_date, Start_time, End_time, Adress, Event_preferences, Attendees, Services, Budget, Speial_request, Card_type, Card_number, Card_expiry, Terms_accepted) 
-                VALUES (:name, :surname, :email, :phone, :city, :event_name, :event_date, :start_time, :end_time, :address, :event_preferences, :attendees, :services, :budget, :special_request, :card_type, :card_number, :card_expiry, :terms_accepted)";
+        $sql = "INSERT INTO manageeventfromklient (Name, Surname, Email, Phone, City, Event_name, Event_date, Start_time, End_time, Adress, Event_preferences, Attendees, Budget, Speial_request, Card_type, Card_number, Card_expiry, Terms_accepted) 
+                VALUES (:name, :surname, :email, :phone, :city, :event_name, :event_date, :start_time, :end_time, :address, :event_preferences, :attendees, :budget, :special_request, :card_type, :card_number, :card_expiry, :terms_accepted)";
 
         $stmt = $conn->prepare($sql);
 
@@ -32,10 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':address', $_POST['address']);
         $stmt->bindParam(':event_preferences', $_POST['event_preferences']);
         $stmt->bindParam(':attendees', $_POST['attendees']);
-        
-        $services = isset($_POST['services']) ? implode(", ", $_POST['services']) : '';
-        $stmt->bindParam(':services', $services);
-
         $stmt->bindParam(':budget', $_POST['budget']);
         $stmt->bindParam(':special_request', $special_request);
 
