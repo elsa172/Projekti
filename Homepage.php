@@ -211,12 +211,10 @@ $reviews = $reviewObj->getReviews();
                 </div>
                 <button type="submit" class="submit-button">Submit Review</button>
             </form>
-        </div>
-    </section>
-<script>document.getElementById('reviewForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+            </div>
+            </section>
 
-
+            <script>
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const review = document.getElementById('review').value;
