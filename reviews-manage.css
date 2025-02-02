@@ -1,29 +1,34 @@
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f9f9f9;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #015958;
     margin: 0;
     padding: 0;
 }
 
-
 header {
-    background-color: #023535;
-    color: #fff;
-    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #023535;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-header .header-logo img {
-    width: 120px;
+
+.header-logo img {
+    max-height: 50px;
+    height: auto;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     display: flex;
-    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
 }
 
 nav ul li a {
@@ -32,72 +37,125 @@ nav ul li a {
     font-weight: bold;
 }
 
-
-.reviews-container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-.reviews-container table {
+.container h1 {
+    font-size: 2rem;
+    color: #023535;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    font-size: 1.5rem;
+    color: #023535;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-top: 20px;
 }
 
-.reviews-container th, .reviews-container td {
-    padding: 12px;
+th, td {
+    text-align: left;
+    padding: 12px 15px;
     border: 1px solid #ddd;
-    text-align: center;
 }
 
-.reviews-container th {
-    background-color: #023535;
+th {
+    background-color: #015958;
     color: white;
+    font-size: 0.90rem;
+    font-weight: bold;
 }
 
+td {
+    font-size: 0.85rem;
+    color: #333;
+}
 
-.reviews-container a {
+td img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 4px;
+}
+
+a {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
-.reviews-container a:hover {
+a:hover {
     text-decoration: underline;
 }
 
+form {
+    margin-top: 20px;
+}
 
-.reviews-container td a {
-    padding: 8px;
-    margin: 5px;
-    background-color: #007bff;
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.90rem;
+}
+
+form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+form button {
+    background-color: #015958;
     color: white;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.90rem;
 }
 
-.reviews-container td a:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+form button:hover {
+    background-color: #023535;
 }
 
-.reviews-container td a.delete-btn {
-    background-color: #dc3545;
-}
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 
-.reviews-container td a.delete-btn:hover {
-    background-color: #c82333;
-}
+    table {
+        font-size: 0.85rem;
+    }
 
-.reviews-container td a.edit-btn {
-    background-color: #007bff;
-}
+    th, td {
+        padding: 10px;
+    }
 
-.reviews-container td a.edit-btn:hover {
-    background-color: #0056b3;
+    .header-logo img {
+        max-height: 40px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
 }
