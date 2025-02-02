@@ -519,205 +519,76 @@ button:hover{
     }
 
 }
-/*Pjesa e Reviews*/
+/* Pjesa e Reviews */
 .reviews {
-    padding: 32px 16px;
-    box-sizing: border-box;
+    padding: 40px 10%;
     background-color: #f9f9f9;
-  }
-  
-  .review {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-  
-  .container-majtas h1 {
-    margin-bottom: 24px;
-    font-size: 44px;
-    font-weight: 600;
-    color: #023535;
-  }
-  
-  .container-majtas p {
-    margin-bottom: 20px;
-    line-height: 28px;
-    font-size: 19px;
-    color: #4d4d4d;
-  }
-  
-  .container-majtas button {
-    padding: 16px 40px;
-    margin-top: 16px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    background-color: #0a7075;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .container-majtas button:hover {
-    background-color: #015958;
-  }
-  
-  .container-djathtas {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
-  .card {
-    padding: 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card img {
-    max-width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #0a7075;
-  }
-  
-  .card-content {
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
-  }
-  
-  .card-content span i {
-    font-size: 32px;
-    color: #015958;
-  }
-  
-  .card-details {
-    font-style: italic;
-    color: #333333;
-    margin-bottom: 8px;
-  }
-  
-  .card-details h4 {
-    text-align: right;
-    color: #0a7075;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  /* Responsiviteti i Reviews */
-  @media screen and (max-width: 768px) {
-    .review {
-      grid-template-columns: 1fr; 
-    }
-    .container-majtas h1 {
-      font-size: 36px; 
-    }
-    .container-majtas p {
-      font-size: 16px; 
-    }
-  
-    .container-majtas button {
-      font-size: 16px;
-      padding: 12px 30px; 
-    }
-  
-    .card {
-      flex-direction: column; 
-      align-items: center; 
-      text-align: center;
-    }
-  
-    .card img {
-      margin-bottom: 16px; 
-    }
-  
-    .card-details h4 {
-      text-align: center; 
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .reviews {
-      padding: 16px; 
-    }
-  
-    .container-majtas h1 {
-      font-size: 28px; 
-    }
-  
-    .container-majtas p {
-      font-size: 14px; 
-    }
-  
-    .container-majtas button {
-      font-size: 14px;
-      padding: 10px 20px;
-    }
-  
-    .card {
-      padding: 16px; 
-    }
-  
-    .card img {
-      max-width: 50px;
-      height: 50px; 
-    }
-  }
-  /*Pjesa e add review*/
-  .add-review {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    margin-top: 40px;
-    border-top: 2px solid #023535;
-    width: 100%;
 }
 
-.add-review h2 {
-    text-align: center;
+.review-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 pjesë majtas, 2 pjesë djathtas */
+    gap: 40px;
+    align-items: start;
+}
+
+.container-majtas {
+    text-align: left;
+}
+
+.container-majtas h1 {
+    font-size: 36px;
+    color: #023535;
+}
+
+.container-majtas p {
+    font-size: 18px;
+    color: #4d4d4d;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+}
+
+.read-stories {
+    display: block;
+    padding: 12px 20px;
+    background-color: #0a7075;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.read-stories:hover {
+    background-color: #015958;
+}
+
+/* Shtimi i stilit për Add Review */
+.add-review {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 40px; /* Vendosja e formës poshtë reviews */
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
+    font-weight: bold;
+    color: #333;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #023535;
-    outline: none;
-    box-shadow: #015958;
 }
 
 .submit-button {
@@ -726,17 +597,71 @@ button:hover{
     background-color: #023535;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color:  #015958;
+    background-color: #015958;
 }
 
+/* Stili për reviews nga databaza */
+.container-djathtas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content span i {
+    font-size: 24px;
+    color: #015958;
+}
+
+.card-details {
+    font-style: italic;
+}
+
+.card-details h4 {
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0a7075;
+}
+
+/* Responsiviteti */
+@media screen and (max-width: 768px) {
+    .review-section {
+        grid-template-columns: 1fr; 
+    }
+    .container-majtas {
+        text-align: center;
+    }
+    .read-stories {
+        width: 100%;
+    }
+}
 
 /*Pjesa e footerit*/
 .footer {

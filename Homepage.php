@@ -169,55 +169,72 @@ $reviews = $reviewObj->getReviews();
     <script src="Script-slider.js"></script>
 </section> 
 <section class="reviews">
-        <h2>Customer Reviews</h2>
-        <div class="review-list">
+    <div class="review-section">
+        <div class="container-majtas">
+            <h1>Read what our customers love about us</h1>
+            <p>
+                Organizing local events has never been this easy! Our platform helps 
+                you streamline event management, connect with participants, and create unforgettable moments.
+            </p>
+            <p>
+                From weddings to business conferences, we ensure every detail is perfect. 
+                Here's what our happy customers have to say about their experiences.
+            </p>
+            <a href="SuccessStories.html"><button class="SuccessStories.html">Read our success stories</button></a>
+        </div>
+        <div class="container-djathtas">
             <?php if ($reviews): ?>
                 <?php foreach ($reviews as $review): ?>
-                    <div class="review-item">
+                    <div class="card">
                         <?php if ($review['photo']): ?>
-                            <img src="<?php echo htmlspecialchars($review['photo']); ?>" alt="User Photo">
+                            <img src="<?php echo htmlspecialchars($review['photo']); ?>" alt="User">
                         <?php else: ?>
-                            <img src="default-user.jpg" alt="User Photo">
+                            <img src="default-user.jpg" alt="User">
                         <?php endif; ?>
-                        <h3><?php echo htmlspecialchars($review['name']); ?></h3>
-                        <p><?php echo nl2br(htmlspecialchars($review['review'])); ?></p>
+                        <div class="card-content">
+                            <span><i class="ri-double-quotes-l"></i></span>
+                            <div class="card-details">
+                                <p><?php echo nl2br(htmlspecialchars($review['review'])); ?></p>
+                                <h4><?php echo htmlspecialchars($review['name']); ?></h4>
+                            </div>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>No reviews found.</p>
+                <p>No reviews available.</p>
             <?php endif; ?>
         </div>
-    </section>
-    <a href="SuccessStories.html"><button>Read our success stories</button></a>
-    <section class="add-review">
-        <div class="container">
-            <h2>Add Your Review</h2>
-            <form id="reviewForm" action="add_review.php" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="photo">Photo:</label>
-                    <input type="file" id="photo" name="photo">
-                </div>
-                <div class="form-group">
-                    <label for="review">Your Review:</label>
-                    <textarea id="review" name="review" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Submit Review</button>
-            </form>
-            </div>
-            </section>
+    </div>
+</section>
 
-            <script>
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const review = document.getElementById('review').value;
+<section class="add-review">
+    <div class="container">
+        <h2>Add Your Review</h2>
+        <form id="reviewForm" action="add_review.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo">
+            </div>
+            <div class="form-group">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit Review</button>
+        </form>
+    </div>
+</section>
+       
+            <script>const name = document.getElementById('name').value;
+           const email = document.getElementById('email').value;
+       const review = document.getElementById('review').value;
 
     const newReview = document.createElement('div');
     newReview.classList.add('card');
@@ -230,7 +247,7 @@ $reviews = $reviewObj->getReviews();
                 <h4>${name}</h4>
             </div>
         </div>
-    `;
+    
 
     document.querySelector('.container-djathtas').appendChild(newReview);
 
