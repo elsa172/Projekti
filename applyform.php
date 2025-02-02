@@ -1,5 +1,18 @@
 <?php
+
 require_once "aplikimet_lidhja.php";
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    echo "<script type='text/javascript'>
+            alert('Ju duhet të jeni të loguar për të derguar një Aplikim.');
+            window.location.href = 'AboutUs.php';
+          </script>";
+    exit;
+}
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $aplikimi = new Aplikimi();

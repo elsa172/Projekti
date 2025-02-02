@@ -1,4 +1,13 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    echo "<script type='text/javascript'>
+            alert('Ju duhet të jeni të loguar për të shtuar  Eventin tuaj.');
+            window.location.href = 'Events.php';
+          </script>";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

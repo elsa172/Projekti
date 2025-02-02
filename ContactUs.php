@@ -1,5 +1,7 @@
 <?php
 include 'Database.php'; 
+session_start();
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
@@ -42,12 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="AboutUs.php">About us</a></li>
             <li><a href="Events.php">Events</a></li>
             <li><a href="ContactUs.php">Contact us</a></li>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                <li><a href="Dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
+
         </ul>
     </nav>
-    <div class="nav-butonat">
-        <a  href="Signin.php"><button>Login</button></a>
-        <a  href="Signup.php"><button>Sign Up</button></a>
-    </div>
+   
      </header>
     <div class="container">
         <div class="form-section">
@@ -85,20 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="email">eventopia@gmail.com</a>
                 </div>
             </div>
-            <div class="social-icons">
-                    <a href="#">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                    <a href="#">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                    <a href="#">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                    <a href="#">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </div>
+            
         </div>
     </div>
 </body>

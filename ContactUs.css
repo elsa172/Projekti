@@ -58,11 +58,11 @@ button:hover{
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-}
-margin: 0;
+    margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Roboto' sans-serif;
+}
 body {
 display: flex;
 justify-content: center;
@@ -171,21 +171,6 @@ color: black;
 
 .infoBox ion-icon {
 font-size: 1.5rem;
-color: #023535;
-}
-
-.social-icons {
-display: flex;
-gap: 10px;
-}
-
-.social-icons a {
-color: #023535
-font-size: 1.5rem;
-transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
 color: #023535;
 }
 

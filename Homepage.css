@@ -649,19 +649,86 @@ button:hover{
     font-weight: bold;
     color: #0a7075;
 }
-
-/* Responsiviteti */
-@media screen and (max-width: 768px) {
-    .review-section {
-        grid-template-columns: 1fr; 
-    }
-    .container-majtas {
-        text-align: center;
-    }
-    .read-stories {
-        width: 100%;
-    }
+/*Stilizimi per add review*/
+.add-review {
+    background-color: #f4f4f9;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
+
+.add-review .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-review h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-review .form-group {
+    margin-bottom: 15px;
+}
+
+.add-review label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.add-review input[type="text"],
+.add-review input[type="email"],
+.add-review input[type="file"],
+.add-review textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-review textarea {
+    resize: vertical;
+}
+
+.add-review .form-group input:focus,
+.add-review .form-group textarea:focus {
+    border-color: #015958;
+    outline: none;
+    box-shadow: 0 0 5px rgba(1, 89, 88, 0.5);
+}
+
+.add-review .submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #015958;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-review .submit-button:hover {
+    background-color: #014c47;
+}
+
+.add-review .form-group input[type="file"] {
+    padding: 5px;
+    border: none;
+}
+
 
 /*Pjesa e footerit*/
 .footer {

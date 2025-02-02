@@ -3,7 +3,7 @@ require_once "Database.php";
 
 $database = new Database();
 $db = $database->getConnection();
-
+session_start();
 $query = "SELECT * FROM eventetaktuale";
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -27,12 +27,12 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="AboutUs.php">About us</a></li>
                 <li><a href="Events.php">Events</a></li>
                 <li><a href="ContactUs.php">Contact us</a></li>
-            </ul>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                <li><a href="Dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
+           </ul>
         </nav>
-        <div class="nav-butonat">
-            <a href="Signin.php"><button>Login</button></a>
-            <a href="Signup.php"><button>Sign Up</button></a>
-        </div>
+       
     </header>
     <div class="conteiner">
     

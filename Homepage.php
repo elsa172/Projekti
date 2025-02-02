@@ -7,6 +7,8 @@ $conn = $db->getConnection();
 
 $reviewObj = new Review($conn);
 $reviews = $reviewObj->getReviews(); 
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +28,30 @@ $reviews = $reviewObj->getReviews();
 
 </head>
 <body>
-    <header >
-       <img class="logo" src="logoEventopia.png" alt="logo">
-       <nav>
+
+<header>
+    <img class="logo" src="logoEventopia.png" alt="logo">
+    <nav>
         <ul class="nav-links">
             <li><a href="Homepage.php">Home</a></li>
             <li><a href="AboutUs.php">About us</a></li>
             <li><a href="Events.php">Events</a></li>
             <li><a href="ContactUs.php">Contact us</a></li>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                <li><a href="Dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="nav-butonat">
-        <a  href="Signin.php"><button>Login</button></a>
-        <a  href="Signup.php"><button>Sign Up</button></a>
+        <?php if (isset($_SESSION['user_id'])) : ?>
+            <a href="Logout.php"><button>Logout</button></a>
+        <?php else : ?>
+            <a href="Signin.php"><button>Login</button></a>
+            <a href="Signup.php"><button>Sign Up</button></a>
+        <?php endif; ?>
     </div>
-    </header>
+</header>
+
     <section class="home">
         
         <div class="action2">
@@ -176,10 +187,7 @@ $reviews = $reviewObj->getReviews();
                 Organizing local events has never been this easy! Our platform helps 
                 you streamline event management, connect with participants, and create unforgettable moments.
             </p>
-            <p>
-                From weddings to business conferences, we ensure every detail is perfect. 
-                Here's what our happy customers have to say about their experiences.
-            </p>
+          
             <a href="SuccessStories.html"><button class="SuccessStories.html">Read our success stories</button></a>
         </div>
         <div class="container-djathtas">
@@ -231,33 +239,9 @@ $reviews = $reviewObj->getReviews();
         </form>
     </div>
 </section>
-       
-            <script>const name = document.getElementById('name').value;
-           const email = document.getElementById('email').value;
-       const review = document.getElementById('review').value;
 
-    const newReview = document.createElement('div');
-    newReview.classList.add('card');
-    newReview.innerHTML = `
-        <img src="default-user.jpg" alt="User">
-        <div class="card-content">
-            <span><i class="ri-double-quotes-l"></i></span>
-            <div class="card-details">
-                <p>${review}</p>
-                <h4>${name}</h4>
-            </div>
         </div>
-    
-
-    document.querySelector('.container-djathtas').appendChild(newReview);
-
-
-    document.getElementById('reviewForm').reset();});
-</script>
-        </div>
-      
-       
-  </section>
+</section>
     
 </body>
 <footer class="footer">

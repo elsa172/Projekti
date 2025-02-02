@@ -44,9 +44,12 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="adminStaff.css">
+    
 <head>
     <meta charset="UTF-8">
     <title>Edit Staff</title>
+    
 </head>
 <body>
     <h1>Edit Staff Member</h1>

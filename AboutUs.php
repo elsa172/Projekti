@@ -2,6 +2,8 @@
 require_once "aplikimet_lidhja.php"; 
 $aplikimi = new Aplikimi();
 $staffMembers = $aplikimi->getStaff(); 
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +24,12 @@ $staffMembers = $aplikimi->getStaff();
             <li><a href="AboutUs.php">About us</a></li>
             <li><a href="Events.php">Events</a></li>
             <li><a href="ContactUs.php">Contact us</a></li>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
+                <li><a href="Dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
-    <div class="nav-butonat">
-        <a  href="Signin.php"><button>Login</button></a>
-        <a  href="Signup.php"><button>Sign Up</button></a>
-    </div>
+   
     </header>
     <!--pjesa e header About us ka mu shtu edhe ni background -->
     <div class="header">

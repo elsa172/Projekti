@@ -4,11 +4,12 @@ include 'Database.php';
 $database = new Database();
 $conn = $database->getConnection();
 
-// Përgatit dhe ekzekuto query-n me PDO
+
 $sql = "SELECT * FROM message ORDER BY ID DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $message = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>

@@ -1,4 +1,11 @@
+<?php
+session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("Location: Signin.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,7 @@
         </ul>
     </nav>
     <div class="nav-butonat">
-        <a  href="Homepage.php"><button>Log out</button></a>
+    <a href="Logout.php"><button>Logout</button></a>
 
     </div>
     </header>
@@ -27,9 +34,10 @@
         <aside class="dashboard-sidebar">
             <h2>Eventopia Admin</h2>
             <ul class="sidebar-menu">
-                <li><a href="events-manage.php">Add Events</a></li>
                 <li><a href="users-manage.php">Manage Users</a></li>
                 <li><a href="reviews-manage.php">Add Reviews</a></li>
+                <li><a href="adminEventetaktuale.php">Events on Website</a></li>
+                <li><a href="events-manage.php">Events from Clients</a></li>
                 <li><a href="adminStaff.php">Add New Staff</a></li>
                 <li><a href="adminMessage.php">Get Messages</a></li>
                 <li><a href="adminAplikimet.php">Get New Aplications</a></li>
@@ -44,11 +52,7 @@
             </header>
 
             <main class="dashboard-main">
-                <section id="add-events" class="section">
-                    <h2>Add Events</h2>
-                    <a href="events-manage.php"><button class="btn">Add New Event</button></a>
-                </section>
-
+                
                 <section id="manage-users" class="section">
                     <h2>Manage Users</h2>
                    <a href="users-manage.php"> <button class="btn">View Users</button></a>
@@ -56,7 +60,15 @@
 
                 <section id="add-reviews" class="section">
                     <h2>Add Reviews</h2>
-                    <a href="reviews-manage.php"><button class="btn">Add Reviews</button></a>
+                    <a href="reviews-manage.php"><button class="btn">View Reviews</button></a>
+                </section>
+                <section id="add-reviews" class="section">
+                    <h2>Events on Website</h2>
+                    <a href="adminEventetaktuale.php"><button class="btn">View Events </button></a>
+                </section>
+                <section id="add-events" class="section">
+                    <h2>Events from Clients</h2>
+                    <a href="events-manage.php"><button class="btn">View Events</button></a>
                 </section>
 
                 <section id="add-staff" class="section">
@@ -81,7 +93,7 @@
 
                 <section id="add-slider" class="section">
                     <h2>Add New Slider</h2>
-                    <a href="admin.slider.php"><button class="btn">Add, Edit, Delete Sliders</button></a>
+                    <a href="adminSlider.php"><button class="btn">View Sliders</button></a>
                 </section>
             </main>
         </div>
