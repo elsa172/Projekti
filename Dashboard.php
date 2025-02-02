@@ -30,6 +30,10 @@
                 <li><a href="events-manage.php">Add Events</a></li>
                 <li><a href="users-manage.php">Manage Users</a></li>
                 <li><a href="reviews-manage.php">Add Reviews</a></li>
+                <li><a href="adminStaff.php">Add New Staff</a></li>
+                <li><a href="adminMessage.php">Get Messages</a></li>
+                <li><a href="adminAplikimet.php">Get New Aplications</a></li>
+                <li><a href="admin.manage.klient.php">Get New Event Orders</a></li>
             </ul>
         </aside>
 
@@ -52,6 +56,26 @@
                 <section id="add-reviews" class="section">
                     <h2>Add Reviews</h2>
                     <a href="reviews-manage.php"><button class="btn">Add Reviews</button></a>
+                </section>
+
+                <section id="add-reviews" class="section">
+                    <h2>Add Staff</h2>
+                    <a href="adminStaff.php"><button class="btn">Add Staff or View it</button></a>
+                </section>
+
+                <section id="add-reviews" class="section">
+                    <h2>Get Messages</h2>
+                    <a href="adminMessage.php"><button class="btn">View Sent Messages</button></a>
+                </section>
+
+                <section id="add-reviews" class="section">
+                    <h2>Get New Applications</h2>
+                    <a href="adminAplikimet.php"><button class="btn">View Sent Aplication</button></a>
+                </section>
+
+                <section id="add-reviews" class="section">
+                    <h2>Get New Event Orders</h2>
+                    <a href="admin.manage.klient.php"><button class="btn">View New Orders</button></a>
                 </section>
             </main>
         </div>
