@@ -97,76 +97,52 @@ $staffMembers = $aplikimi->getStaff();
         </div>
 
         <!--Slideri-->
-        <section class="sliders">
-            <div class="slider-header">
-                <h2 class="slider-title">What We Realize</h2>
-                <p class="slider-subtitle">The Most Successful Events</p>
-            </div>
-            <div class="swiper">
-                <div class="card-wapper">
-                    <ul class="card-list swiper-wrapper">
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="Festival.jpeg" alt="Nje Event" class="card-image">
-                                <p class="permbajtja"></p>
-                                <h2 class="titulli"> Summer Festival</h2>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="sport.webp" alt="" class="card-image">
-                                <p class="Engage with the community through thrilling sports events and activities."></p>
-                                <h2 class="titulli">Basketball Event</h2>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="Wedding.jpg" alt="Nje Event" class="card-image">
-                                <p class="Experience the perfect wedding with personalized themes and designs"></p>
-                                <h2 class="titulli">Wedding</h2>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="Firework.jpg" alt="Nje Event" class="card-image">
-                                <p class="Vibrant summer festival celebration"></p>
-                                <h2 class="titulli">Sparkling night</h2>
-                            </a>
-                        </li>
-                        <li class="card-item swiper-slide">
-                            <a href="#" class="card-link">
-                                <img src="Piknik.jpg" alt="Nje Event" class="card-image">
-                                <p class="Vibrant summer festival celebration"></p>
-                                <h2 class="titulli">Picnic day</h2>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        </section>
+        <?php 
+    require_once 'Database.php';
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="Script-slider.js"></script>
-        <!--team-->
-        <section class="team-section">
-    <h2>MEET OUR TEAM</h2>
-    <div class="team-container">
-        <?php foreach ($staffMembers as $staff): ?>
-            <div class="team-card">
-                <img src="<?= isset($staff['Photo']) ? $staff['Photo'] : 'default.jpg' ?>" alt="<?= $staff['Name'] ?>">
-                <h3><?= htmlspecialchars($staff['Name']) ?></h3>
-                <p class="role"><?= htmlspecialchars($staff['Role']) ?></p>
-                <div class="card-details">
-                    <p><?= htmlspecialchars($staff['Description']) ?></p>
-                </div>
-            </div>
-        <?php endforeach; ?>
+    $db = new Database();
+    $conn = $db->getConnection();
+
+    $query = "SELECT * FROM successful_events";
+    $stmt = $conn->query($query);
+    $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<section class="sliders">
+    <div class="slider-header">
+        <h2 class="slider-title">What We Realize</h2>
+        <p class="slider-subtitle">The Most Successful Events</p>
+    </div>
+    <div class="swiper">
+        <div class="card-wapper">
+            <ul class="card-list swiper-wrapper">
+                <?php
+                if ($events && count($events) > 0): 
+                    foreach ($events as $event):
+                ?>
+                    <li class="card-item swiper-slide">
+                        <a href="#" class="card-link">
+                            <img src="uploads/<?= htmlspecialchars($event['image']) ?>" alt="<?= htmlspecialchars($event['title']) ?>" class="card-image">
+                            <p class="permbajtja"><?= htmlspecialchars($event['description']) ?></p>
+                            <h2 class="titulli"><?= htmlspecialchars($event['title']) ?></h2>
+                        </a>
+                    </li>
+                <?php
+                    endforeach;
+                else:
+                    echo "<li>No events found.</li>";
+                endif;
+                ?>
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
 </section>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="Script-slider.js"></script>
+        
 
         <!--ka me pas hala modifikime-->
         <section class="join-team-section">
