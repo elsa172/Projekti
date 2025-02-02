@@ -27,6 +27,15 @@ nav ul {
     padding: 0;
 }
 
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 .messages-container {
     max-width: 2500px;
     margin: 40px auto;

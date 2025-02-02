@@ -50,7 +50,7 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h2>Ready to Take Charge of Your Event?</h2>
         <h2>Manage It Like a Pro!</h2>
         <p>Take control of your event like never before! With just a click, you can organize, track, and ensure everything runs smoothly. From planning to execution, our platform gives you the tools to manage every detail with ease. Ready to make your event a success? Start now and bring your vision to life! </p>
-       <a href="Manage.html"> <button>Manage Event</button></a>
+       <a href="Manage.php"> <button>Manage Event</button></a>
       </div>
     </div>
 
