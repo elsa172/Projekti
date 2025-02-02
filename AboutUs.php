@@ -142,7 +142,25 @@ $staffMembers = $aplikimi->getStaff();
 </section>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="Script-slider.js"></script>
-        
+
+<!--team-->
+<h2>MEET OUR TEAM</h2>
+<div class="team-container">
+    <?php if (!empty($staffMembers)): ?>
+        <?php foreach ($staffMembers as $staff): ?>
+            <div class="team-card">
+                <img src="<?= isset($staff['Photo']) ? $staff['Photo'] : 'default.jpg' ?>" alt="<?= $staff['Name'] ?>">
+                <h3><?= htmlspecialchars($staff['Name']) ?></h3>
+                <p class="role"><?= htmlspecialchars($staff['Role']) ?></p>
+                <div class="card-details">
+                    <p><?= htmlspecialchars($staff['Description']) ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Nuk ka të dhëna për stafin.</p>
+    <?php endif; ?>
+</div>
 
         <!--ka me pas hala modifikime-->
         <section class="join-team-section">
