@@ -20,13 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindValue(3, $message, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            echo "Mesazhi u dërgua me sukses!";
+            echo "<script>
+                    alert('Mesazhi u dërgua me sukses!');
+                    window.location.href = 'ContactUs.php';
+                  </script>";
         } else {
-            echo "Gabim gjatë dërgimit të mesazhit.";
+            echo "<script>
+                    alert('Gabim gjatë dërgimit të mesazhit.');
+                    window.location.href = 'ContactUs.php';
+                  </script>";
+        } 
+        } else {
+            echo "<script>
+                    alert('Please fill in all fields correctly!');</script>";
         }
-        $stmt->closeCursor(); 
-    } else {
-        echo "Ju lutem plotësoni të gjitha fushat!";
-    }
+        
 }
 ?>

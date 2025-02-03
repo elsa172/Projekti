@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':attendees', $_POST['attendees']);
         $stmt->bindParam(':budget', $_POST['budget']);
         $stmt->bindParam(':special_request', $special_request);
-
         $stmt->bindParam(':card_type', $_POST['card_type']);
         $stmt->bindParam(':card_number', $_POST['card_number']);
         $stmt->bindParam(':card_expiry', $_POST['card_expiry']);
@@ -43,16 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':terms_accepted', $terms_accepted);
 
         if ($stmt->execute()) {
-            echo "Event booked successfully!";
-            header("Location: admin.manage.klient.php"); 
+            echo "<script>
+                    alert('Event booked successfully!');
+                    window.location.href = 'Events.php';
+                  </script>";
             exit();
         } else {
-            echo "Error: Event not booked.";
-            print_r($stmt->errorInfo());
-        }
-        
-    } catch (PDOException $e) {
-        echo "Database error: " . $e->getMessage();
-    }
+            echo "<script>alert('Error: Event not booked.');</script>";
+    } 
 }
 ?>

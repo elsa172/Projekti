@@ -28,7 +28,7 @@ $message = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <nav>
         <ul>
-            <li><a href="adminDashboard.php">Dashboard</a></li>
+            <li><a href="Dashboard.php">Dashboard</a></li>
         </ul>
     </nav>
 </header>

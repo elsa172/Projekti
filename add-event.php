@@ -7,12 +7,6 @@ include_once 'Event.php';
 $database = new Database();
 $db = $database->getConnection();
 
-$event = new Event($db);
-if (!isset($_SESSION['user_id'])) {
-    echo "<script>alert('Ju duhet të jeni të loguar për të shtuar një Event.'); window.location.href = 'Signin.php';</script>";
-    exit;
-}
-
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET['id']) && !empty($_GET['id'])) {

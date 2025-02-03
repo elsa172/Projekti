@@ -7,22 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $message = trim($_POST['message']);
+}
 
-    if (!empty($name) && !empty($email) && !empty($message)) {
-        // Përdorim prepared statements 
-        $sql = "INSERT INTO messages (Name, Email, Message) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $name, $email, $message);
-
-        if ($stmt->execute()) {
-            echo "Mesazhi u dërgua me sukses!";
-        } else {
-            echo "Gabim gjatë dërgimit të mesazhit.";
-        }
-        $stmt->close();
-    } else {
-        echo "Ju lutem plotësoni të gjitha fushat!";
-    }
+if (!empty($name) && !empty($email) && !empty($message)) {
+    // Përdorim prepared statements 
+    $sql = "INSERT INTO messages (Name, Email, Message) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $message);
 }
 ?>
 

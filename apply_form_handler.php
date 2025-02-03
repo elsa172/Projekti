@@ -17,7 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $photo_path)) {
             if ($aplikimi->registerApplication($name, $surname, $role, $description, $photo_path)) {
-                echo "<script>alert('Application submitted successfully!');</script>";
+                echo "<script>alert('Application submitted successfully!');
+                window.location.href = 'AboutUs.php';
+                </script>";
             } else {
                 echo "<script>alert('Error submitting application.');</script>";
             }
